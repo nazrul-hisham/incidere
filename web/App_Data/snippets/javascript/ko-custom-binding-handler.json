@@ -1,0 +1,6 @@
+{
+  "lang": "javascript",
+  "title": "ko-custom-binding-handler",
+  "note": "Creates a  new knockoutjs custom binding handler",
+  "code": "ko.bindingHandlers.${1:binding}= {\n    init: function (element, valueAccesor) {\n       \n    },\n    update: function (element, valueAccesor) {\n       \n    }\n};"
+}

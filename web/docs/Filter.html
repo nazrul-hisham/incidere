@@ -1,0 +1,32 @@
+<h1 id="filter">Filter</h1>
+<h2 id="overview">Overview</h2>
+<p><a href="Filter.html"><code>Filter</code></a> provide easy to use for composing <a href="QueryDsl.html"><code>QueryDsl</code></a>. It&#39;s provide 3 basic building block. <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-term-query.html"><code>Term</code></a> points to the  property path in your <a href="EntityDefinition.html"><code>EntityDefinition</code></a>, the reason it&#39;s called <code>Term</code> instead of <code>Path</code> is internally it will generate <a href="BooleanFilter.html"><code>BooleanFilter</code></a> to your ElasticSearch using <code>term</code> query. As such it&#39;s only good for string value with no analyzer specified on the member, or any other non string <a href="Member.html"><code>Member</code></a> where <a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl-range-query.html"><code>RangeQuery</code></a> is used insted. Spefifying a <a href="Member.html"><code>Member</code></a> to be analyzed breaking up terms making this query unpredictable. 
+The other property is the <a href="Field.html"><code>Field</code></a> which you can specify using one of the built in <a href="Field.html"><code>Field</code></a>, the only unique feature is the  ability to use <a href="JavascriptExpressionField.html"><code>JavascriptExpressionField</code></a> with only 1 value only for now <code>config.userName</code> to allow you to specify the current user.</p>
+<p>These operators are not supported thoug.</p>
+<ul>
+<li>Not contains</li>
+<li>Not starts with</li>
+<li>Not ends with</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Term</td><td> - Term query define the path to your property</td></tr>
+<tr><td>Operator</td><td> - Binary Operator </td></tr>
+<tr><td>Field</td><td> - The field to compare to</td></tr>
+</tbody></table>
+
+
+
+<h2 id="see-also">See also</h2>
+<p><a href="Field.html"><code>Field</code></a>
+<a href="ConstantField.html"><code>ConstantField</code></a>
+<a href="Operator.html"><code>Operator</code></a>
+<a href="FunctionField.html"><code>FunctionField</code></a>
+<a href="JavascriptExpressionField.html"><code>JavascriptExpressionField</code></a></p>

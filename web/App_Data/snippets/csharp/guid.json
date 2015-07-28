@@ -1,0 +1,6 @@
+{
+  "lang": "csharp",
+  "title": "guid",
+  "note": "guid",
+  "code": "Guid.NewGuid().ToString()"
+}

@@ -1,0 +1,6 @@
+{
+  "lang": "javascript",
+  "title": "view-partial",
+  "note": "view model partial",
+  "code": "define([], function(){\n\tvar activate = function(${1:list}){\n\t\t\t\n\t\t\tvar tcs = new $.Deferred();\n\t\t\tsetTimeout(function(){\n\t\t\t\ttcs.resolve(true);\n\t\t\t}, 500);\n\n\t\t\treturn tcs.promise();\n\n\n\t\t},\n\t\tattached  = function(view){\n\t\t\n\t\t};\n\n\treturn {\n\t\tactivate : activate,\n\t\tattached : attached\n\t};\n\n});"
+}

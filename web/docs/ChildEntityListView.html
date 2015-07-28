@@ -1,0 +1,37 @@
+<h1 id="childentitylistview">ChildEntityListView</h1>
+<p><a href="ChildEntityListView.html"><code>ChildEntityListView</code></a> form allows your to embed mini <a href="EntityView.html"><code>EntityView</code></a> that belongs to another entity in a <a href="EntityForm.html"><code>EntityForm</code></a>. Basically it creates some sort of <code>Children</code> list of remote entities.</p>
+<p>A simple use case is, if your <code>Patient</code> entity has a collection of <code>Appointment</code>, and you model <code>Appointment</code> as a seperate <code>EntityDefinition</code>, and <code>Appointment</code> entity definition a a field called <code>Mrn</code> which is basically linked back  to the <code>Patient</code> Mrn.</p>
+<p><img src="http://i.imgur.com/SkziC8K.png" alt="Appointment form"></p>
+<p>and you want your <code>Patient</code> details form to look like this
+<img src="http://i.imgur.com/nfnytEw.png" alt="patient detail"></p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+   <tr>
+       <td>Entity</td>
+       <td> - Lets you pick the type of the child Entity</td>
+   </tr>
+   <tr>
+       <td>Query</td>
+       <td> - The filter query for the API to get the child items, this must be valid odata API as implemented by Rx Developer and all the member sepecified in the query mus be IsFilterable</td>
+   </tr>
+   <tr>
+       <td>ViewColumnCollection</td>
+       <td>
+           - The list of columns to be displayed
+           <a href="ViewColumn.html">ViewColumn</a> for details
+           </td>
+</tr>
+   <tr>
+       <td></td>
+       <td></td>
+   </tr>
+</tbody></table>
+
+<p><img src="http://i.imgur.com/1luk73l.png" alt="alt"></p>

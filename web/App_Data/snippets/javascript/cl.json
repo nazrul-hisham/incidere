@@ -1,0 +1,6 @@
+{
+  "lang": "javascript",
+  "title": "cl",
+  "note": "console.log",
+  "code": "console.log(\"${1:message}\");"
+}

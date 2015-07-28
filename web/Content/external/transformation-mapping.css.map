@@ -1,0 +1,9 @@
+{
+  "version": 3,
+  "file": "transformation-mapping.css",
+  "sources": [
+    "transformation-mapping.less"
+  ],
+  "names": [],
+  "mappings": "AAAA;AAAoB;EAChB,WAAA;EACA,mBAAA;EACA,YAAA;EACA,eAAA;EACA,iBAAA;EACA,0DAAA;EACA,uDAAA;EACA,kDAAA;;AAGJ;EACA,kBAAA;;AAEA;EACA,mBAAA"
+}

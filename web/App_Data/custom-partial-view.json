@@ -1,0 +1,30 @@
+[
+  {
+    "name": "some-test-partial-view",
+    "originalName": null,
+    "useViewModel": true,
+    "jsDiff": null,
+    "htmlDiff": null
+  },
+  {
+    "name": "another-test-partial-view",
+    "originalName": null,
+    "useViewModel": true,
+    "jsDiff": null,
+    "htmlDiff": null
+  },
+  {
+    "name": "test-view-3",
+    "originalName": null,
+    "useViewModel": true,
+    "jsDiff": null,
+    "htmlDiff": null
+  },
+  {
+    "name": "_doing.my-job5",
+    "originalName": null,
+    "useViewModel": true,
+    "jsDiff": null,
+    "htmlDiff": null
+  }
+]

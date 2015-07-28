@@ -1,0 +1,6 @@
+{
+  "lang": "csharp",
+  "title": "id",
+  "note": "get item id",
+  "code": "var id = item.${1:Entity}Id;"
+}

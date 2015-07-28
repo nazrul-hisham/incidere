@@ -1,0 +1,6 @@
+{
+  "lang": "csharp",
+  "title": "now",
+  "note": "Now",
+  "code": "DateTime.Now"
+}

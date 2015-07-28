@@ -1,0 +1,6 @@
+{
+  "lang": "html",
+  "title": "data-bind-value",
+  "note": "data-bind-value",
+  "code": "data-bind=\"value:${1:Path}"
+}

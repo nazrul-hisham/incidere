@@ -1,0 +1,18 @@
+<h1 id="how-to-set-a-dateline-to-your-screen-activity">How to Set a DateLine to your Screen Activity</h1>
+<p>It&#39;s a common in business process, you will need to set a timeline for some particular action to be taken. You may want to trigger another action if your system doesnt get any respond from user for some period of time. Here, you could set a dateline for your <a href="ScreenActivity.html"><code>Screen Activity</code></a> by attach the <a href="DelayActivity.html"><code>Delay Activity</code></a> in your workflow.</p>
+<p>In this example, we want to set the <em>Leave Application Form</em> to be available to the supervisor to approve within 3days of the application. When system detect no action from user within these period, it will automatically canceled the <code>Screen Activity</code> and execute another activity defined in the workflow.</p>
+<p>You must define full namespace of your custom entity if you wish to retrieve your record from your custom entity:</p>
+<pre>
+var repos = ObjectBuilder.GetObject<IRepository<bespoke.ehrms.domain.Leave>>();
+dynamic leave = await repos.LoadOneAsync(this.LeaveId);
+this.Leave = leave;
+item.CurrentEmployeeEmail = leave.Email;
+item.CurrentSupervisorEmail = leave.ImmediateSupervisorEmail;
+</pre>
+
+<p>You can use predefine data context if you want to retrieve record from existing entity:</p>
+<pre>
+var context = new SphDataContext();
+var username = await context.GetScalarAsync<UserProfile,string>(e => e.Email == item.CurrentSupervisorEmail, e => e.UserName); 
+item.SupervisorUsername = username;
+</pre>

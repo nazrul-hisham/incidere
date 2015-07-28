@@ -1,0 +1,6 @@
+{
+  "lang": "javascript",
+  "title": "custom-form-viewmodel",
+  "note": "Custom Form viewmodel",
+  "code": "define([\"services/datacontext\", \"services/logger\", \"plugins/router\", objectbuilders.system, objectbuilders.app], function(context, logger, router, system, app){\n\tvar activate = function(${1:id}){\n\t\t\t\n\t\t\treturn true;\n\n\n\t\t},\n\t\tattached  = function(view){\n\t\t\n\t\t};\n\n\treturn {\n\t\tactivate : activate,\n\t\tattached : attached\n\t};\n\n});"
+}

@@ -1,0 +1,6 @@
+{
+  "lang": "csharp",
+  "title": "cl",
+  "note": "console write line",
+  "code": "Console.WriteLine(\"${1:message}\");"
+}

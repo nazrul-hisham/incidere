@@ -1,0 +1,6 @@
+{
+  "lang": "javascript",
+  "title": "dialog",
+  "note": "dialog",
+  "code": "require(['viewmodels/${1:dialog}' , 'durandal/app'], function (dialog, app2) {\n    app2.showDialog(dialog)\n\t    .done(function (result) {\n\t\t\tif (!result) return;\n\t\t\tif (result === \"OK\") {\n\t\t\t\t${2://body..}\n\t\t\t\n\t\t\t}\n\t});\n});"
+}

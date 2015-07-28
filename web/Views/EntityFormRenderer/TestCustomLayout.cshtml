@@ -1,0 +1,21 @@
+@using System.Web.Mvc.Html
+@model Bespoke.Sph.Web.ViewModels.FormRendererViewModel
+
+@{
+
+    Layout = null;
+    var caption = string.IsNullOrWhiteSpace(Model.Form.Caption) ? Model.Form.Name : Model.Form.Caption;
+
+}
+
+<h1 data-i18n="@caption">@caption</h1>
+<h1>Doing another test</h1>
+@Html.Partial("_ErrorList")
+<div class="row">
+    <div class="col-sm-8">
+        @Html.Partial("_FormContent")
+    </div>
+    <div class="col-sm-4">
+        @Html.Partial("_AuditTrailContent")
+    </div>
+</div>

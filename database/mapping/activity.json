@@ -1,0 +1,58 @@
+{
+	   "activity": {
+            "properties": {
+               "ActivityWebId": {
+                  "type": "string"
+               },
+               "Elapse": {
+                  "type": "string",
+                  "index": "not_analyzed",
+                  "norms": {
+                     "enabled": false
+                  },
+                  "index_options": "docs"
+               },
+               "ElapseSeconds": {
+                  "type": "long"
+               },
+               "Initiated": {
+                  "type": "date",
+                  "format": "dateOptionalTime"
+               },
+               "InstanceId": {
+                  "type": "long"
+               },
+               "Name": {
+                  "type": "string",
+                  "index": "not_analyzed",
+                  "norms": {
+                     "enabled": false
+                  },
+                  "index_options": "docs"
+               },
+               "Run": {
+                  "type": "date",
+                  "format": "dateOptionalTime"
+               },
+               "Type": {
+                  "type": "string",
+                  "index": "not_analyzed",
+                  "norms": {
+                     "enabled": false
+                  },
+                  "index_options": "docs"
+               },
+               "User": {
+                  "type": "string",
+                  "index": "not_analyzed",
+                  "norms": {
+                     "enabled": false
+                  },
+                  "index_options": "docs"
+               },
+               "WorkflowDefinitionId": {
+                  "type": "long"
+               }
+            }
+         }
+}

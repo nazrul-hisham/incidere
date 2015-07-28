@@ -1,0 +1,50 @@
+<h1 id="workflowdesigner">WorkflowDesigner</h1>
+<h2 id="overview">Overview</h2>
+<p>Provides the design surface for <code>WorkflowDefinition</code>. This allow developers to quickly build a <code>WorkflowDefinition</code> visually. It consist of a design surface where you can draf and drop selected artivities. Each activity could also be configure via their own property window.</p>
+<h2 id="toolbar">Toolbar</h2>
+<p><img src="http://i.imgur.com/4iUUtqO.png" alt="Toolbar"></p>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Toolbar</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Save</td><td> - Save the current <code>WorkflowDefinition</code> to the repository. NOTE : No validation or compilation occurs</td></tr>
+<tr><td>Delete</td><td> -Remove the current <code>WorkflowDefinition</code> from repository. Will not remove it the deployed versions, use management tools to remove deployed versions</td></tr>
+<tr><td>Reload</td><td> - Redraw the current design surface</td></tr>
+<tr><td>Export</td><td> -Export an archived version of this <code>WorkflowDefinition</code></td></tr>
+<tr><td>Import</td><td> - Import the archived <code>WorkflowDefinition</code></td></tr>
+<tr><td>Pages</td><td> -Link to the <a href="Page.html">Page</a> list</td></tr>
+<tr><td>Build</td><td> - Compile and validates the <code>WorkflowDefinition</code></td></tr>
+<tr><td>Publish</td><td> -Validate, compile and publish the current <code>WorkflowDefinition</code></td></tr>
+<tr><td>Title</td><td> -The name of the current <code>WorkflowDefinition</code></td></tr>
+</tbody></table>
+
+<h2 id="toolbox">Toolbox</h2>
+<p>Toolbox represent a floating palletes on your right(or bottom). It consist of 4 tab pages. You can close the toolbox by clicking on the <code>x</code> on the top right corner, to re open the toolbox use <code>[Ctrl] + [Alt] + x</code></p>
+<p><img src="http://i.imgur.com/LJXnbaI.png" alt="Toolbox"></p>
+<h3 id="toolbox">Toolbox</h3>
+<p>List of <a href="Activity.html"><code>Activities</code></a> that you can drag on drop onto the design surface</p>
+<h3 id="variables">Variables</h3>
+<p>Lets you add and configure <a href="Variable.html"><code>Variable</code></a> for you <a href="WorkflowDefinition.html"><code>WorkflowDefinition</code></a></p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>X</td><td> - The position in the design surface for an <code>Activity</code></td></tr>
+<tr><td>Y</td><td> - The position in the design surface for an <code>Activity</code></td></tr>
+</tbody></table>
+
+<h2 id="known-issues">Known issues</h2>
+<p>The <code>Path</code> autosuggest in ScreenActivity do not refresh to the new path, when you change the data type for the variable.</p>
+<h3 id="workaround">Workaround</h3>
+<p>We use Bootstrap typeaheadjs to provide the autosuggest feature, the default behaviour is to cache the list of autosuggest in localstorage. You should clear the localstorage from your browser in order to refresh the list. Click on all relevant keys to your WorkflowDefinition with corresponding id(10002 in this example), and press [delete] key on your keyboard.</p>
+<p><img src="http://i.imgur.com/wgZb5is.png" alt=""></p>
+<h2 id="see-also">See also</h2>

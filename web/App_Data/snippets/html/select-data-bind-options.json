@@ -1,0 +1,6 @@
+{
+  "lang": "html",
+  "title": "select-data-bind-options",
+  "note": "select-data-bind-options",
+  "code": "<select class=\"form-control\" data-bind=\"value:${1:Path}, options :$root :${2:options}, optionsText : '${3:optionsText}', optionsValue :'${4:optionsValue}'\"></select>"
+}

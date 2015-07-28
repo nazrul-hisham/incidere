@@ -1,0 +1,28 @@
+<h1 id="how-to-create-cascading-combobox">How To : Create Cascading Combobox</h1>
+<p>Cascading combobox is common scenarion in when developing a form, it helps your users to narrow down the selection and makes it easier for them to avoid mistakes. Cascading combobox is when a combobox options depends on other values that might change, this could be the value from another combobox.</p>
+<p>Take an example where you have a list of <code>Car makers</code> such as BMW, Mercedes and Mazda, then these makes has their own models. It makes sense for your user to select the car make first, then present her the corresponding models from the make.</p>
+<p>In this example, we are going to do a simple <code>State</code> and <code>District</code> cascading combobox.
+<img src="http://i.imgur.com/yjihbqk.png" alt="address field"></p>
+<p>and when the State changed, so does the list of District options
+<img src="http://i.imgur.com/PThi4wE.png" alt="District options"></p>
+<h2 id="creating-the-dependent-entities">Creating the dependent entities</h2>
+<p>You&#39;ll need an <a href="EntityDefinition.html"><code>EntityDefinition</code></a> for <code>State</code> and one for <code>District</code></p>
+<p><img src="http://i.imgur.com/OIUGCoa.png" alt="States"></p>
+<p><img src="http://i.imgur.com/cozv794.png" alt="Districts"></p>
+<h2 id="the-form">The form</h2>
+<p>Drops 2 <a href="CombobBox.html"><code>CombobBox</code></a> on the <a href="FormDesign.html"><code>FormDesign</code></a> surface, for the first one, configure it for <code>State</code>. Set the lookup entity to <code>State</code>, and for <code>Value</code> and <code>Display</code> path to <code>Name</code>, leave the <code>Query</code> blank.</p>
+<p><img src="http://i.imgur.com/oyPMkwf.png" alt="State combobox"></p>
+<p>Now go to the second combobox, configure it for the <code>District</code>.Set the lookup entity to <code>District</code>, for <code>Value</code> and <code>Display</code> path to <code>Name</code>.</p>
+<p><img src="http://i.imgur.com/5SDyRSA.png" alt="District combobox">
+(1) Make sure to check the <code>Computed Query</code> checkbox, thus the <code>Query</code> field will be evaluated as function.</p>
+<p>(2) Now the interesting part is how we are going to manipulate the <code>Query</code> property for this combobox.</p>
+<p><pre>
+&#39;State eq \&#39;&#39; + State() + &#39;\&#39;&#39;
+</pre>
+now if the <code>State</code> field is changed to Kelantan this will trigger the query to change to</p>
+<p><pre>
+&#39;State eq \&#39;Kelantan\&#39;&#39;
+</pre>
+and the dropdown will be refreshed from the server.</p>
+<p>Please note that you have to use <code>&#39;</code>(single quote) in the query, as <code>&quot;</code>(double quote) is not allowed as the generated functionwill be embedded in your HTML attribute. As such we have to escape any occurence of <code>&#39;</code> in our query.
+<img src="http://i.imgur.com/AbTouu1.png" alt="code"></p>

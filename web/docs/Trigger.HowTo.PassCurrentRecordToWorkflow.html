@@ -1,0 +1,13 @@
+<h1 id="how-to-pass-trigger-current-record-to-a-startworkflowaction">How to pass trigger current record  to a StartWorkflowAction</h1>
+<p>Your <a href="WorkflowDefinition.html"><code>WorkflowDefinition</code></a> might contains a <a href="ClrTypeVariable.html"><code>ClrTypeVariable</code></a> which normally contains one of the <a href="EntityDefinition.html"><code>EntityDefinition</code></a>. It&#39;s common situation where you want to pass the current record from your <a href="Trigger.html"><code>Trigger</code></a> to the workflow in order to start it. The <a href="StartWorkflowAction.html"><code>StartWorkflowAction</code></a> contains <code>MappingCollection</code> which allows you to map the <code>WorkflowDefinition</code> variables.</p>
+<p>Lets pick an example, where your <a href="WorkflowDefinition.html"><code>WorkflowDefinition</code></a> contains a variable called <code>Patient</code> and is of type <a href="ClrTypeVariable.html"><code>ClrTypeVariable</code></a>. From your <a href="Trigger.html"><code>Trigger</code></a> which point to the <code>Patient</code> <a href="EntityDefinition.html"><code>EntityDefinition</code></a>, The current  <code>item</code> in your <a href="FunctionField.html"><code>FunctionField</code></a> is always the record.</p>
+<p><img src="http://i.imgur.com/9hMluDn.png" alt="alt"></p>
+<p>So all you have to do is just write a <a href="FunctionField.html"><code>FunctionField</code></a> with one line of script</p>
+<pre>
+item
+</pre>
+
+<p>or</p>
+<pre>
+return item;
+</pre>

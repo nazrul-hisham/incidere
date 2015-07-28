@@ -1,0 +1,6 @@
+{
+  "lang": "csharp",
+  "title": "debug",
+  "note": "debug",
+  "code": "System.Diagnostics.Debug.WriteLine(\"${1:message}\");"
+}

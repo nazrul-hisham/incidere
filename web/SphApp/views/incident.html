@@ -1,0 +1,82 @@
+<div class="row" data-bind="with : entity">
+    <img alt="logo" data-bind="attr:{src:'/sph/image/store/' + IconStoreId() + '?height=50'}" class="pull-right" />
+    <h1 data-bind="text:Plural"></h1>
+</div>
+
+
+<div class="row">
+    <a data-toggle="collapse" href="#recent-incidents">
+        <h3 data-bind="with : entity">
+            <i class="fa fa-chevron-down"></i>
+            Recent <span data-bind="text:Plural"></span>
+        </h3>
+    </a>
+    <div id="recent-incidents" class="collapse collapsed">
+        <div class="" data-bind="searchPaging: {list :recentItems, query : recentItemsQuery, pagerHidden:true , entity : 'Incident'}">
+            <ul data-bind="foreach :recentItems" class="metro-tile">
+                <li class="blightblue">
+
+                    <a data-bind="attr:{'href' : '#incident-details/' + Id}">
+                        <i class="fa fa-shield"></i>
+                        <span data-bind="text:Number"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+
+        <h3>Charts</h3>
+        <div data-bind="foreach: charts">
+            <div class="chart-wrapper">
+                <div data-bind="chart:$data"></div>
+                <a href="#" class="hover-drop" title="Unpin from homepage">
+                    <span class="glyphicon glyphicon-pushpin pull-right"></span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-6">
+        <h3>
+            Views
+        </h3>
+        <ul id="entity-view-list" data-bind="foreach :views" class="metro-tile">
+
+            <li data-bind="attr : {'class':TileColour}">
+                <a data-bind="attr:{href : '#' + Route(), 'title' : Note}">
+                    <div class="pull-left">
+                        <img data-bind="attr:{src: '/sph/image/store/' + IconStoreId() }" alt="Icon" />
+                    </div>
+                    <div>
+                        <span class="count-message" data-bind="text:CountMessage"></span>
+                    </div>
+
+                    <div>
+                        <h5 data-bind="text: Name"></h5>
+                        <span data-bind="visible: !Note()">..</span>
+                        <p data-bind="text: Note">..</p>
+                    </div>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</div>
+
+
+
+<div class="row">
+
+    <h3>
+        Reports
+    </h3>
+    <ul data-bind="foreach: reports">
+        <li>
+            <a data-bind="attr:{href:String.format('#/reportdefinition.execute-id.{0}/{0}', Id()) }, text:Title"></a>
+        </li>
+    </ul>
+</div>

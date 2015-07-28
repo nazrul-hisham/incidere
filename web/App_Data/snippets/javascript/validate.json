@@ -1,0 +1,6 @@
+{
+  "lang": "javascript",
+  "title": "validate",
+  "note": "validate business rules",
+  "code": "var tcs = new $.Deferred();\ncontext.post( ko.mapping.toJSON(entity),'/patient/validate/${1:business rules}')\n.done(function(result){\n    if (result.success) {\n        logger.info(result.message);\n        errors.removeAll();\n        app.showMessage(\"${2: valid message}\", \"${3:title}\", [\"OK\"]);;\n    \n    } else {\n        errors.removeAll();\n        _(result.rules).each(function (v) {\n            errors(v.ValidationErrors);\n        });\n        logger.error(\"${4:invalid message}\");\n    }\n    tcs.resolve(true);\n});\n\nreturn tcs.promise();"
+}

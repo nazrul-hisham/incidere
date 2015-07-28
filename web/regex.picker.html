@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Regex Picker</title>
+    <style>
+        .selected-item {
+            border: 2px orange solid;
+        }
+        #toolbar input[type=text], textarea {
+            width: 90%;
+            margin: 5px;
+            height: 29px;
+            color: #444343;
+            font-size: 14px;
+            font-family: 'Segoe UI',Tahoma,Arial,Helvetica,sans-serif;
+            margin-left: 120px;
+        }
+
+        #toolbar label {
+            margin: 5px;
+            height: 29px;
+            min-width: 120px;
+            color: #444343;
+            font-size: 14px;
+            font-family: 'Segoe UI',Tahoma,Arial,Helvetica,sans-serif;
+        }
+    </style>
+</head>
+<body style="height: 90%">
+    <div id="toolbar" style="background-color: #cccccc">
+        <form data-bind="with : operation">
+            <table style="width: 90%">
+                <tbody>
+                    <tr>
+                        <td><label>Url</label></td>
+                        <td><input type="text" readonly="readonly" data-bind="value: Url()" /></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><label>Pattern</label></td>
+                        <td>
+                            <textarea id="pattern" data-bind="value:$root.pattern" style="min-width: 600px"></textarea>
+                        </td>
+                        <td>
+                            <a href="#toolbar" data-bind="click : $root.expand">Expand</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Group</label>
+                        </td>
+                        <td>
+                            <input type="text" data-bind="value:$root.group" />
+                        </td>
+                        <td>
+                            <a href="#toolbar" data-bind="click : $root.addGroup">Add Group</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <ul data-bind="foreach :results">
+            <li data-bind="text:$data"></li>
+        </ul>
+        <button data-bind="click : test">Test</button>
+        <button data-bind="click : saved">Save</button>
+    </div>
+    <div id="main" style="position: relative;overflow-y: scroll;max-height: 760px">
+
+    </div>
+
+
+    <script src="/Scripts/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/Scripts/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/Scripts/knockout-3.2.0.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/Scripts/knockout.mapping-latest.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/Scripts/underscore.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        $.fn.insertAtCaret = function (text) {
+            return this.each(function () {
+                var sel, startPos, endPos, scrollTop;
+                if (document.selection && this.tagName == 'TEXTAREA') {
+                    //IE textarea support
+                    this.focus();
+                    sel = document.selection.createRange();
+                    sel.text = text;
+                    this.focus();
+                } else if (this.selectionStart || this.selectionStart == '0') {
+                    //MOZILLA/NETSCAPE support
+                    startPos = this.selectionStart;
+                    endPos = this.selectionEnd;
+                    scrollTop = this.scrollTop;
+                    this.value = this.value.substring(0, startPos) + text + this.value.substring(endPos, this.value.length);
+                    this.focus();
+                    this.selectionStart = startPos + text.length;
+                    this.selectionEnd = startPos + text.length;
+                    this.scrollTop = scrollTop;
+                } else {
+                    // IE input[type=text] and other browsers
+                    this.value += text;
+                    this.focus();
+                    this.value = this.value;    // forces cursor to end
+                }
+            });
+        };
+
+        $(function () {
+
+            var ele = null, text = null;
+            var vm = {
+                operation: window.operation,
+                adapterId: ko.observable(window.adapterId),
+                pattern: ko.observable(window.member.Pattern()),
+                html: ko.observable(),
+                group: ko.observable(window.member.Group()),
+                results: ko.observableArray(),
+                test: function () {
+                    var json = JSON.stringify({
+                        html: $('#main').html(),
+                        pattern: vm.pattern(),
+                        group: vm.group()
+                    });
+
+                    $.ajax({
+                        type: "POST",
+                        data: json,
+                        url: "/httpadapter/test",
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        error: function (e) {
+                            console.log("error", e);
+                        },
+                        success: function (list) {
+                            console.log(list);
+                            vm.results(list);
+                        }
+                    });
+
+
+                },
+                saved: function () {
+
+                    if (typeof window.saved === "function") {
+                        window.saved(vm.pattern(), vm.group());
+                    }
+                },
+                expand: function () {
+                    if (ele) {
+                        ele = ele.parent();
+                        var pattern = ele.clone().wrap('<p>').parent().html();
+                        pattern = pattern
+                            .replace(text, "8BD69E93578C4DB0A4871671CD8D8847")
+                            .replace('\\', '\\\\')
+                            .replace('[', '\\[')
+                            .replace(']', '\\]')
+                            .replace('*', '\\*')
+                            .replace('?', '\\?')
+                            .replace('^', '\\^')
+                            .replace('.', '\\.')
+                            .replace('|', '\\|')
+                            .replace('+', '\\+')
+                            .replace('$', '\\$')
+                            .replace('(', '\\(')
+                            .replace(')', '\\)')
+                            .replace("8BD69E93578C4DB0A4871671CD8D8847", "(?<" + window.member.Name() + ">.*?)");
+
+                        vm.pattern(pattern);
+                    }
+                },
+                addGroup: function () {
+                    vm.group(window.member.Name());
+                }
+            };
+
+
+            $.get("/httpadapter/text/" + vm.adapterId() + "/" + window.operation.HttpMethod() + "?url=" + window.operation.Url())
+                .done(function (html) {
+                    $('#main').html(html);
+                });
+            $('#main').on('click', '*', function (e, t) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                ele = $(e.target);
+                text = ele.text();
+                var pattern = ele.clone().wrap('<p>').parent().html();
+                pattern = pattern
+                    .replace(text, "8BD69E93578C4DB0A4871671CD8D8847")
+                    .replace('\\', '\\\\')
+                    .replace('[', '\\[')
+                    .replace(']', '\\]')
+                    .replace('*', '\\*')
+                    .replace('?', '\\?')
+                    .replace('^', '\\^')
+                    .replace('.', '\\.')
+                    .replace('|', '\\|')
+                    .replace('+', '\\+')
+                    .replace('$', '\\$')
+                    .replace('(', '\\(')
+                    .replace(')', '\\)')
+                    .replace("8BD69E93578C4DB0A4871671CD8D8847", "(?<" + window.member.Name() + ">.*?)");
+                vm.pattern(pattern);
+                vm.group(window.member.Name());
+                //ele.addClass('selected-item');
+            });
+
+            ko.applyBindings(vm);
+
+
+        })();
+    </script>
+</body>
+</html>

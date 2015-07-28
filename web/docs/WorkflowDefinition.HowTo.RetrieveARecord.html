@@ -1,0 +1,18 @@
+<h1 id="how-to-retrieve-a-record">How to Retrieve a Record</h1>
+<p>You can use <a href="ExpressionActivity.html"><code>Expression Activity</code></a> to retrieve your record.  You can retrieve it either from your custom entity Or directly from existing entity in the system. <em>(This depends on what records you need in your workflow)</em> </p>
+<p>In this example our workflow retrieved the record from <code>Custom Entity</code> <em>Leave</em> and also it try to get user&#39;s email from <code>SPH entity</code> <em>User Profile</em> .</p>
+<p>Retrieve record from custom entity. You must write the full namespace for which entity you would like to retrieve data from:</p>
+<pre>
+var repos = ObjectBuilder.GetObject<IRepository<Bespoke.ehrms.Domain.Leave>>();
+dynamic leave = await repos.LoadOneAsync(this.LeaveId); 
+this.Leave = leave;
+item.CurrentEmployeeEmail = leave.Email;
+item.CurrentSupervisorEmail = leave.ImmediateSupervisorEmail;
+</pre>
+
+<p>Retrieve record from predefine data context:</p>
+<pre>
+var context = new SphDataContext();
+var username = await context.GetScalarAsync<UserProfile,string>(e => e.Email == item.CurrentSupervisorEmail, e => e.UserName); 
+item.SupervisorUsername = username;
+</pre>

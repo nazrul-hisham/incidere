@@ -1,0 +1,6 @@
+{
+  "lang": "html",
+  "title": "dialog-form",
+  "note": "Creates a custom dialog HTML markup",
+  "code": "\n<section class=\"view-model-modal\" id=\"${1:ID}\">\n    <div class=\"modal-dialog\">\n        <div class=\"modal-content\">\n\n            <div class=\"modal-header\">\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" data-bind=\"click : cancelClick\">&times;</button>\n                <h3>${2:TITLE$}</h3>\n            </div>\n            <div class=\"modal-body\" data-bind=\"with: ${3:item}\">\n\n                <form class=\"form-horizontal\" id=\"${1:ID}-form\">\n                  \n\n                </form>\n            </div>\n            <div class=\"modal-footer\">\n                <input form=\"${1:ID}-form\" data-dismiss=\"modal\" type=\"submit\" class=\"btn btn-primary\" value=\"OK\" data-bind=\"click: okClick\" />\n                <a href=\"#\" class=\"btn btn-default\" data-dismiss=\"modal\" data-bind=\"click : cancelClick\">Cancel</a>\n            </div>\n        </div>\n    </div>\n</section>"
+}

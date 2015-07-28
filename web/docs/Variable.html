@@ -1,0 +1,42 @@
+<h1 id="variable">Variable</h1>
+<h2 id="overview">Overview</h2>
+<p><code>WorkflowDefinition</code> is just a simple object with attributes, or fields, but we call them <code>Variable</code>. The <code>Variables</code> holds the user state of an <code>instance</code>.These are normally things that goes into your <code>ScreenActivity</code> forms, as well as other states variables such loop counter etc.</p>
+<p><code>Variables</code> are the things that your workflow interact with. Lets walkthrough an example for a workflow to process a referal request for specialist, in a traditional code development, we might write something like</p>
+<pre><code class="lang-csharp">public class ProcessReferal : Workflow
+{
+    // a member to hold the patient object
+    public Patient Patient{set;get;}
+
+    // a member for the requested specialist
+    public string Specialist{set;get;}
+
+    //.. other members and methods
+
+
+}
+</code></pre>
+<p>So all your variables will be written as public field in your <code>Workflow</code> class, in which you will manipulate these <code>Variables</code> as <code>Activities</code> are executed.</p>
+<h2 id="how-to-add-a-variable-to-your-workflowdefinition">How to add a variable to your WorkflowDefinition</h2>
+<p>Go to your <code>WorkflowDefinition</code> designer, select <code>Variable</code> tab page from the <code>Toolbox</code>. You can see the list of variable and add new one by click on the &quot;Add Variable&quot; button
+<img src="http://i.imgur.com/s5JZ7ks.png" alt=""></p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Name</td><td> - Valid identifier for your variable</td></tr>
+<tr><td>TypeName</td><td> - The CLR type</td></tr>
+<tr><td>DefaultValue</td><td> - Future </td></tr>
+</tbody></table>
+
+
+
+<h2 id="see-also">See also</h2>
+<p><a href="WorkflowDefinition.html">WorkflowDefinition</a>
+<a href="ClrTypeVariable.html">ClrTypeVariable</a>
+<a href="ComplexVariable.html">ComplexVariable</a>
+<a href="SimpleVariable.html">SimpleVariable</a></p>

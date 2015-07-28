@@ -1,0 +1,9 @@
+{
+  "adapter": "epsikometrik",
+  "map": "mysqlsoalantorxsoalanmap",
+  "sql": "select * from soalan ",
+  "table": "soalan",
+  "entity": "Soalan",
+  "batchSize": 40,
+  "name": "Another test"
+}

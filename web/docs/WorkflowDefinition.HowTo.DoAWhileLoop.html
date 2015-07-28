@@ -1,0 +1,11 @@
+<h1 id="how-to-do-a-while-loop">How to do a While Loop</h1>
+<p>A while loop is a control flow statement that allows code to be executed repeatedly based on a given condition. The while loop can be thought of as a repeating if statement.</p>
+<p>The while construct consists of a block of code and a condition. The condition is evaluated, and if the condition is true, the code within the block is executed. This repeats until the condition becomes false. </p>
+<p>For this example, your workflow contains a while loop that keeps assigning a new Task item to the <em>Approver</em> until the <em>LastApprover</em> approved the form. In this case, there are 3 <em>Approver</em>.</p>
+<p>You can handle this by populate the <em>CurrentApproverIndex</em> using the <a href="ExpressionActivity.html"><code>Expression Activity</code></a> and condition evaluation using <a href="DecisionActivity.html"><code>Decision Activity</code></a>. By attached these two activities with your <a href="ScreenActivity.html"><code>Screen activity</code></a>, you will be able to set your while loop.</p>
+<p><img src="http://i.imgur.com/cukPzj2.png" alt="alt"></p>
+<p>Refering to figure above:
+1) First, you have to initiate the <em>CurrentApproverIndex</em> to 0 . <em>CurrentApproverIndex</em> is a variable define in your workflow.
+2) Once the Current Approver approved the form, you increase the value of <em>CurrentApproverIndex</em>
+3)The loop will be continued until the value of <em>CurrentApproverIndex</em> is equal to the total number of approver. 
+4) Process End when decision is made by <em>LastApprover</em></p>

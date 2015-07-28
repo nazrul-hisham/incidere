@@ -1,0 +1,45 @@
+<h1 id="mysql-adapter-procedure">MySql Adapter Procedure</h1>
+<p>This page allows you to customize you procedure request and response object</p>
+<h2 id="procedure-with-result-set-reader-">Procedure with result set(reader)</h2>
+<p>If your procedure returns a result set, you must specify this in the response object using <code>&lt;ResultSet&gt;Collection</code> member with the type <code>Collection</code> and this result set need to contains the same member as your column name</p>
+<pre><code class="lang-sql">CREATE DEFINER=`root`@`localhost` PROCEDURE `getEmployeesByEmpNo`(IN no INT)
+BEGIN 
+
+   SELECT * FROM employees
+     WHERE emp_no = no;
+  END
+</code></pre>
+<p>In this example, the procedure will return a result set with the following columns</p>
+<p><img src="http://i.imgur.com/FXoEqi2.png" alt="alt"></p>
+<p>The you will need to create an exact response object just like this</p>
+<p><img src="http://i.imgur.com/q87Gamf.png" alt="alt"></p>
+<p>This will generate an adapter with code like this one</p>
+<pre><code class="lang-C#">
+       public async Task&lt;GetEmployeesByEmpNoResponse&gt; GetEmployeesByEmpNoAsync(GetEmployeesByEmpNoRequest request)
+       {
+           var sql =&quot;CALL `employees`.`getEmployeesByEmpNo`(@no);&quot;;
+           using(var conn = new MySqlConnection(this.ConnectionString))
+           using(var cmd = new MySqlCommand(sql, conn))
+           {
+               cmd.Parameters.AddWithValue(&quot;@no&quot;, request.@no);
+               await conn.OpenAsync();
+               var response = new GetEmployeesByEmpNoResponse();
+               var row = await cmd.ExecuteNonQueryAsync();
+               using(var reader = await cmd.ExecuteReaderAsync())
+               {
+                   while(await reader.ReadAsync())
+                   {
+                       var item = new Staff();
+                       item.emp_no = (int)reader[&quot;emp_no&quot;];
+                       item.birth_date = (DateTime)reader[&quot;birth_date&quot;];
+                       item.first_name = (string)reader[&quot;first_name&quot;];
+                       item.last_name = (string)reader[&quot;last_name&quot;];
+                       item.gender = (string)reader[&quot;gender&quot;];
+                       item.hire_date = (DateTime)reader[&quot;hire_date&quot;];
+                       response.StaffCollection.Add(item);
+                   }
+               }
+               return response;
+           }
+       }
+</code></pre>

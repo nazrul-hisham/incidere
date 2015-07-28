@@ -1,0 +1,54 @@
+<h1 id="entity-operation">Entity Operation</h1>
+<h2 id="overview">Overview</h2>
+<p><code>EntityDefinition</code> is like a class in object oriented world, as such there are 2 things an object has</p>
+<ol>
+<li>Attributes - set of properties that define an object</li>
+<li>Operations -  set of method or function that an object can invoke</li>
+</ol>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Rules</td><td> - Set of rules executed before executing the actions </td></tr>
+<tr><td>Permissions</td><td> - Set of roles the use must have to perform this action , There are 2 special permission defined and they are mutually exclusive, anonymous and everybody</td></tr>
+<tr><td>SetterActionChildCollection</td><td> - Set of <a href="SetterActionChild.htm">SetterActionChild&gt;</a> that allows you to set member values after the Business Rule succeefully run and before the Operation is executed </td></tr>
+<tr><td>Name</td><td> - The name of the operation</td></tr>
+<tr><td>SuccessMessage</td><td> - If the operation is successfully executed, this will be the notification message</td></tr>
+<tr><td>NavigateSuccessUrl</td><td> - After the operation is successfully executed and notification is dismissed, the page will navigate to this url </td></tr>
+</tbody></table>
+
+
+<p>Attributes is defined by the schema designer, where you can design your object in a hierachical manner. <code>Rx Developer</code> call this <code>Member</code> <a href="Member.html">see more</a></p>
+<p><code>Rx Developer</code> also allows you to creates a set of operations to your entity definition by means of <code>EntityOperation</code>, this is available from <code>EntityDefinition</code> designer.
+<img src="http://i.imgur.com/PD4IAz9.png" alt="EntityOperation">. 
+You can click <code>+Operation</code> to add a new operation.</p>
+<p>This will bring you this screen.</p>
+<p><img src="http://i.imgur.com/1dPutz0.png" alt="EntityOperation designer"></p>
+<ol>
+<li>The name of the <code>EntityOperation</code> , it must be a valid identifier for method name, as such cannot contain spaces, or special chars except <code>_</code>, and must start with a letter. For consistency we recommend using <code>PascalCase</code> e.g. &#39;<code>Demote</code></li>
+<li>The <code>EntityDefinition</code> that you are working on</li>
+<li>The name of the <code>EntityOperation</code>, refer #1</li>
+<li>A set of <code>BusinessRule</code> you want to validate with, prior to executing your operation. If any of the rules failed to operation will not proceed and error messages will be show to the user.
+Please refer to the <a href="businessrule.htm">BusinessRule</a> for more details about <code>BusinessRule</code></li>
+<li>Set of roles/authorization required to execute the operation. The use must be in one of these roles in other for the execution to succeed, else status code <a href="http.403.htm">Status 403</a> will be returned.</li>
+<li>You can specify <a href="childsetteraction.htm">setter actions</a> to set the values of your entity fields/attributes. For example setting the <code>Rating</code> field for <code>Customer</code> entity to be 1 less than the previous value using a <a href="functionfield.htm">FuctionField</a> <code>item.Rating -1</code></li>
+</ol>
+<p>The <code>EntityOperation</code> designer will not compile your code, clicking save will only save it to your <code>EntityDefinition</code> in which you will have to <code>Publish</code> it from the <code>EntityDefinition</code> designer.</p>
+<p>Once compiled, a new Asp.Net MVC <code>Action</code> will be created with the name of the operation. Where it would take an instance of the <code>EntityDefinition</code> from the input stream, and run the specified business rules and if all passed the setter action will be called before submitting it to the persistence layer.
+If you need to modify or do other works from this <code>EntityOperation</code> apart from simple field settings, you can use <a href="Trigger.html"><code>Trigger</code></a> where you
+can call additional <a href="SetterAction.html"><code>SetterAction</code></a>, or <a href="EmailAction.html"><code>EmailAction</code></a> or <a href="StartWorkflowAction.html"><code>StartWorkflowAction</code></a>.</p>
+<p>Operation can be decorated with permissions attribute, this consist set of <code>role</code> they user must have to perform the operation.</p>
+<ul>
+<li><code>Anonymous</code> is for public unathenticated and authenticated users. Selecting this attribute will nullify the rest</li>
+<li><code>Everybody</code> is only for authenticated users. Selecting this attribute will nullify the rest</li>
+<li>Custom roles, you can select 1 or more of these roles but must not be together with either <code>Anonymous</code> or <code>Everybody</code></li>
+</ul>
+<h2 id="see-also">See also</h2>
+<p><a href="FunctionField.html">FunctionField</a>
+<a href="DocumentField.html">DocumentField</a>
+<a href="ConstantField.html">ConstantField</a></p>

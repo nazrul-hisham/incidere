@@ -1,0 +1,80 @@
+<h1 id="entitydefinition">EntityDefinition</h1>
+<h2 id="overview">Overview</h2>
+<p>The first core concept of <code>Rx Developer</code> is the <code>Entity</code>. This plays a very vital role in the whole <code>Rx Developer</code> programming concept. <code>Entity</code> is not a <code>table</code> translated from relational world. It is hugely different than <code>table</code> and <code>tuples</code> from relational world that you may know.</p>
+<p>To really understand the power of <code>Entity</code> is to forget everthing you know about relational database and it&#39;s related technologies such as <code>object relational mapper(ORM)</code>.The concepts of foreign key, parent child, and normal forms just simply didn&#39;t exist in the first place.</p>
+<p>An <code>Entity</code> is a type of object that you are interested to track it&#39;s life in your problem domains. This could be <code>Customer</code> if you are developing a Customer relationship management or <code>Patient</code> in case clinical information system. It&#39;s also know as <code>Root</code> object. Then there are <code>Value</code> objects, these are objects that attached to an entity, and would not exist without the <code>Entity</code> for example <code>Address</code> for your <code>Customer</code>, the <code>Address</code> alone is not an <code>Entity</code> as it is quite useless without the <code>Customer</code>. But if you are developing a Geographic information System for postal service then an <code>Address</code> could be your <code>Entity</code>.</p>
+<p>As such, think an <code>Entity</code> as the a traditional paper folder where one folder hold one record, that may contains many documents inside. Take a folder for a <code>Patient</code> in a hospital environment. It might have these fields writen on it.</p>
+<ul>
+<li>The name of the patient</li>
+<li>The registration number(MRN)</li>
+<li>Date of birth</li>
+<li>Address<ul>
+<li>Street</li>
+<li>State</li>
+<li>Postal code</li>
+</ul>
+</li>
+<li>etc</li>
+</ul>
+<p>and there could be a number of documents inside it, such as visit records, medical history, referals etc.</p>
+<p>So your <code>Entity</code> will be called <code>Patient</code>, and <code>Visit</code> will be your value object, well in this case there will be many <code>Visit</code>s</p>
+<p>In <code>Rx Developer</code>, this could easily be modelled as follows</p>
+<pre><code>
+    Entity : Patient
+        Value : FullName
+        Value : Mrn
+        Value : Address
+            Value : Street
+            Value : Postalcode
+            Value : State
+        Value : Visit list**
+            Value : DateTime
+            Value : Title
+            Value : Doctor     
+        Value : Medical History list
+            Value : DateTime
+            Value : ClinicalNote
+          ...
+           ...
+</code></pre><p>This is very natural way storing your data, in a way that we all understand, there&#39;s no need to artificially model after tables and relatioships. The way <code>Rx Developer</code> take care of your data is known as <code>Document</code> store database. You can read more about <a href="http://en.wikipedia.org/wiki/Document-oriented_database">Document database</a> in Wikipedia.</p>
+<p>Notice that <code>Address</code> is just another object that belongs to the <code>Patient</code> entity, what makes  <code>Patient</code> and <code>Address</code> diferrent is very minimal
+*<code>Patient</code> is an object that you interested to track it&#39;s life time</p>
+<ul>
+<li><code>Address</code> is just an object that belong to another <code>Value</code> object or an <code>Entity</code>
+<em><code>Patient</code> has an identifier field or what we call RecordName
+</em><code>Address</code> doesn&#39;t have any identifier field, so without it&#39;s parent, it&#39;s imposible to tell if an <code>Address</code> belong to patient A or patient B. The key point to take home is <code>Value</code> object does not live in isolation.</li>
+</ul>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>CodeNamespace</td><td> - System generated</td></tr>
+<tr><td>MemberCollection</td><td> - The fields or member that you define in <code>EntityDefiniton</code> schema designer</td></tr>
+<tr><td>BusinessRuleCollection</td><td> - Business rules that you may apply to this <code>Entity</code>. Rules can be applied to a <code>EntityForm</code> and/or <code>EntityOperation</code> </td></tr>
+<tr><td>EntityOperationCollection</td><td> - The list of valid <code>EntityOperation</code> or executable method to perform an operation to the entity instance</td></tr>
+<tr><td>EntityDefinitionId</td><td> - The internal identifier key. This is used in many parts</td></tr>
+<tr><td>Name</td><td> - The name of the <code>EntityDefinition</code>, must be a valid identifier</td></tr>
+<tr><td>Plural</td><td> -The plural name for the <code>EntityDefinition</code> </td></tr>
+<tr><td>IconStoreId</td><td> - Set a icon image for your landing page, this should a PNG file. We recommend getting using Syncfusion Metro Studio for your image </td></tr>
+<tr><td>IconClass</td><td> - Icon for the item and navigation menu - pick one from fontawesome or bootstrap glyphicon </td></tr>
+<tr><td>RecordName</td><td> - The primary member where a reference is normally made, it&#39;s used as the primary way of identifying a record(instance of an <code>Entitydefinition</code>) apart from <code>Name</code>Id </td></tr>
+<tr><td>IsPublished</td><td> - The state wether the EntityDefinition is in development or has been published</td></tr>
+</tbody></table>
+
+
+
+<h2 id="see-also">See also</h2>
+<ul>
+
+                <li><a href="Member.html">Member</a></li>
+                <li><a href="EntityForm.html">EntityForm</a></li>
+                <li><a href="EntityView.html">EntityView</a></li>
+                <li><a href="FieldPermission.html">FieldPermission</a></li>
+                <li><a href="BusinessRule.html">BusinessRule</a></li>
+                <li><a href="EntityOperation.html">EntityOperation</a></li>
+            </ul>

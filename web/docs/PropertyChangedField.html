@@ -1,0 +1,35 @@
+<h1 id="propertychangedfield">PropertyChangedField</h1>
+<h2 id="overview">Overview</h2>
+<p>Provides previous value of the property specified. This is normally used to detect a change. For example to find out if the <code>Status</code> property was changed from <code>New</code>, then you would write a <a href="PropertyChangedField.html"><code>PropertyChangedField</code></a> with <code>Path</code> = <code>Status</code> and operator is <code>=(Eq)</code> and the right field is a <a href="ConstantField.html"><code>ConstantField</code></a> with value <code>New</code>.</p>
+<p>To get a full rule when the field is changed from <code>New</code> to <code>Closed</code> for example, you have to write two rules with the second one using <a href="DocumentField.html"><code>DocumentField</code></a> path is set to <code>Status</code> and compare it <a href="ConstantField.html"><code>ConstantField</code></a> with value <code>Closed</code>
+<img src="http://i.imgur.com/uyQDN4P.png" alt="Two rules to detects changes"></p>
+<h2 id="how-to-use-propertychangedfield-to-detect-changes-in-trigger-rules">How to use PropertyChangedField to detect changes in Trigger rules</h2>
+<p>If you need to fire a trigger when a field value has changed, regardless of its value, then you can just compare the previous value and the current value, if they are not equal then you know you get it.</p>
+<p><img src="http://i.imgur.com/GdJsRjh.png" alt="Property changed field value"></p>
+<p><img src="http://i.imgur.com/e4gPVCW.png" alt="Current value via DocumentField"></p>
+<p><img src="http://i.imgur.com/idkX0IL.png" alt="Rule"></p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Path</td><td> - The property path to the document</td></tr>
+<tr><td>TypeName</td><td> - Reserved</td></tr>
+<tr><td>OldValue</td><td> - Reserved</td></tr>
+<tr><td>NewValue</td><td> - Reserved</td></tr>
+<tr><td>Type</td><td> - Reserved</td></tr>
+</tbody></table>
+
+
+
+<h2 id="see-also">See also</h2>
+<p><a href="Field.html">Field</a>
+<a href="AssemblyField.html">AssemblyField</a>
+<a href="FunctionField.html">FunctionField</a>
+<a href="ConstantField.html">ConstantField</a>
+<a href="DocumentField.html">DocumentField</a>
+<a href="PropertyChangedField.html">PropertyChangedField</a></p>

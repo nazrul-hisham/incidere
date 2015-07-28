@@ -1,0 +1,32 @@
+<h1>All Incidents</h1>
+<div class="row">
+    <div class="col-md-8">
+        <button class="btn btn-link pull-right" data-bind="visible: chartFiltered, click: clearChartFilter">
+            <i class="fa fa-times"></i>
+            Clear chart's filter
+        </button>
+        <table class="table table-striped" data-bind="filter : {path:'tbody>tr'}, searchPaging :{ query: query, map : map, entity : 'Incident', list:list}">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Number</th>
+                    <th>Created Date</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach :list">
+                <tr data-bind="">
+
+                    <td data-bind="text:Id"></td>
+                    <td data-bind="text:Number"></td>
+                    <td data-bind="date:{ value:CreatedDate, format:&#39;D/M/YYYY HH:mm&#39;}"></td>
+
+
+                </tr>
+            </tbody>
+        </table>
+        <img src="/Images/spinner-md.gif" alt="loading" class="absolute-center" data-bind="visible: isBusy" />
+    </div>
+
+    <!-- ko compose : {view : '_chart.panel'}-->
+    <!-- /ko -->
+</div>

@@ -1,0 +1,63 @@
+<h1 id="expressionactivity">ExpressionActivity</h1>
+<h2 id="overview">Overview</h2>
+<p><a href="ExpressionActivity.html"><code>ExpressionActivity</code></a> allows you to embed your own code in a <a href="WorkflowDefinition.html"><code>WorkflowDefinition</code></a>. This is the main extensibility point you can find in <code>Rx Developer</code> if the provided activities did not meet requirements. On the other hand <a href="ExpressionActivity.html"><code>ExpressionActivity</code></a> could also be used to do other things such as setting the <a href="Variable.html"><code>Variable</code></a> values, this is useful for example in a loop where you need to set the <code>CurrentItem</code> or the <code>CurrentIndex</code> for your loop.</p>
+<h2 id="referencing-external-assemblies">Referencing external assemblies</h2>
+<p>If you need to call external assemblies there are 2 ways of achieving this at the moment</p>
+<ul>
+<li>Via <code>Add Referenced Assembly</code> dialog in your <a href="WorkflowDefinition.html"><code>WorkflowDefinition</code></a></li>
+<li>Via <a href="ObjectBuilder.html"><code>ObjectBuilder</code></a> registration.</li>
+</ul>
+<h3 id="add-reference-assembly">Add reference assembly</h3>
+<p>Allow you to add commonly used assembly , those that currently loaded in your <code>AppDomain</code>, if this assembly is not in <code>GAC</code> then you&#39;ll have to copy it to the Subscriber folder.
+<img src="http://i.imgur.com/Rex8SF6.png" alt="Use Referenced Assembly tab"></p>
+<p>You&#39;ll have to fully qualified your the type used.</p>
+<pre><code class="lang-csharp">
+// example of calling Membership is 
+var me = System.Web.Security.Membership.GetUser(&quot;me&quot;);
+</code></pre>
+<h3 id="using-objectbuilder-registration">Using ObjectBuilder registration</h3>
+<p>ObjectBuilder is a little more flexible, that it allows you to add almost any assembly, all you have to do is register them in your <code>.config</code> files(subscribers.host\workers.console.runner.exe.config or subscribers.host\workers.windowsservice.runner.exe.config).</p>
+<pre><code class="lang-xml">   &lt;object name=&quot;MyObject&quot; type=&quot;MyCompany.Myproject.MyObject,mycustomdll&quot;&gt;
+        &lt;constructor-arg name=&quot;arg&quot; value=&quot;myname&quot; /&gt;
+      &lt;/object&gt;
+</code></pre>
+<p>This simple registration will allow you to write code like this</p>
+<pre><code class="lang-csharp">dynamic myobject = ObjectBuilder.GetObject(&quot;MyObject&quot;); // refer to the name property
+myobject.Call();// where Call is a method defined in your class
+</code></pre>
+<p>The use of <code>dynamic</code> keyword allows far greater flexibility, since <code>Rx Developer</code> didn&#39;t have to know about your object. Thou you are losing the compile time checking.</p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Expression</td><td> - Your code, must be a valid C# code</td></tr>
+</tbody></table>
+
+
+
+<h2 id="see-also">See also</h2>
+<p><a href="Activity.html">Activity</a>
+<a href="CreateEntityActivity.html">CreateEntityActivity</a>
+<a href="DecisionActivity.html">DecisionActivity</a>
+<a href="DecisionBranch.html">DecisionBranch</a>
+<a href="DelayActivity.html">DelayActivity</a>
+<a href="DeleteEntityActivity.html">DeleteEntityActivity</a>
+<a href="EndActivity.html">EndActivity</a>
+<a href="ExpressionActivity.html">ExpressionActivity</a>
+<a href="ScreenActivity.html">ScreenActivity</a>
+<a href="NotificationActivity.html">NotificationActivity</a>
+<a href="UpdateEntityActivity.html">UpdateEntityActivity</a>
+<a href="ReceiveActivity.html">ReceiveActivity</a>
+<a href="SendActivity.html">SendActivity</a>
+<a href="ListenActivity.html">ListenActivity</a>
+<a href="ParallelActivity.html">ParallelActivity</a>
+<a href="JoinActivity.html">JoinActivity</a>
+<a href="ThrowActivity.html">ThrowActivity</a>
+<a href="ParallelBranch.html">ParallelBranch</a>
+<a href="ListenBranch.html">ListenBranch</a>
+<a href="ScheduledTriggerActivity.html">ScheduledTriggerActivity</a></p>

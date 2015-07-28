@@ -1,0 +1,30 @@
+<h1 id="entitychart">EntityChart</h1>
+<p><a href="EntityChart.html"><code>EntityChart</code></a> is a visual presentation of the current <a href="EntityView.html"><code>EntityView</code></a> which allow you to display in a visual manner. <a href="EntityChart.html"><code>EntityChart</code></a> will always filter the data accoring to the current <a href="EntityView.html"><code>EntityView</code></a> query as you set them in the <a href="Filter.html"><code>Filter</code></a> section of the view.</p>
+<p>Internally the chart query uses <code>ElasticSearch</code> aggregation features, available in v1.0 and above only, as such it&#39;s perfectly acceptable to write your own query for the chart.</p>
+<h2 id="aggregate">Aggregate</h2>
+<p>There 3 types of aggregates supported in <a href="EntityChart.html"><code>EntityChart</code></a> so far. They are the followings</p>
+<ul>
+<li><p><a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-bucket-terms-aggregation.html"><code>Terms</code></a>- This will aggregate using the <a href="TermQuery.html"><code>TermQuery</code></a>. This is only good for string field which you have not set to be full text analyzed. </p>
+</li>
+<li><p><a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-bucket-histogram-aggregation.html"><code>Histogram</code></a> - This is good for numerical values where you can define an interval for your steps.</p>
+</li>
+<li><p><a href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/search-aggregations-bucket-datehistogram-aggregation.html"><code>DateHistogram</code></a> - Allow you to aggregate date field according to the interval you specify in the <code>DateInterval</code> section</p>
+</li>
+</ul>
+<h2 id="field">Field</h2>
+<p>This is option for the field available in your <a href="EntityDefinition.html"><code>EntityDefinition</code></a></p>
+<h2 id="type">Type</h2>
+<p>The chart type, currently these are the only options</p>
+<ul>
+<li>Pie</li>
+<li>Line</li>
+<li>Bar</li>
+<li>Column</li>
+</ul>
+<h2 id="saving-your-chart">Saving your chart</h2>
+<p><code>Rx Developer</code> also allows you to save you chart, this enable you to quickly render your predefined charts by just selected it from the options</p>
+<p><img src="http://i.imgur.com/gSWKWp6.png" alt="alt">
+Create your chart as usual and click on the save button to save your chart</p>
+<h2 id="editing-existing-chart">Editing existing chart</h2>
+<p>Once a predefined chart is selected, there are options to edit them or removing the from the system
+<img src="http://i.imgur.com/X76kWUW.png" alt="alt"></p>

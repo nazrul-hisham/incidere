@@ -1,0 +1,90 @@
+<h1 id="assemblyfield">AssemblyField</h1>
+<h2 id="overview">Overview</h2>
+<p>Allows you to execute a custom method in your own assembly. </p>
+<h2 id="thing-to-know">Thing to know</h2>
+<p>If your method is an async method, you must return Task&lt;object&gt;. </p>
+<p>Since the Field.GetValue is a synchronous method, it will wrap inside <code>Wait</code> and <code>ContinueWith</code>, so problem might arise with the thread waiting for the await. So make sure any async call is wrap with <code>ConfigureAwait(false)</code>. 
+The word of warning : You might run into deadlock issue in this situation</p>
+<p>Here is simple example of C# class</p>
+<pre><code class="lang-csharp">using System;
+
+namespace Bespoke
+{
+    public class Util
+    {
+        public string GetLookupValue(string value)
+        {
+            // may read it from database somewhere
+            return value + &quot;01 is the lookup for &quot; + value;
+        }
+        public async Task&lt;string&gt; GetLookupValueAsync(string value)
+        {
+            // may read it from database somewhere
+            await Task.Delay(5000);
+            return value + &quot;01 is the lookup for &quot; + value;
+        }
+    }
+
+}
+</code></pre>
+<p>then compile it using csc.exe</p>
+<pre>
+csc /t:library Util.cs
+</pre>
+
+<p><img src="http://i.imgur.com/WbIljtq.png" alt="Field setting"></p>
+<h2 id="using-custom-assembly-that-refer-to-your-entity">Using custom assembly that refer to your Entity</h2>
+<p>Not all you do is a simple lookup function with a simple type arguement, there may be time that you need to include the full object to your type.</p>
+<pre><code class="lang-csharp">using System;
+namespace Bespoke
+{
+    public class Util
+    {
+        public string GetOldRecordName(Bespoke.Dev_patient.Domain.Patient patient)
+        {
+            // may read it from database somewhere
+            return patient.Mrn + &quot;_old&quot;;
+        }
+    }
+
+}
+</code></pre>
+<p>Now compile your dll using this switch</p>
+<pre>
+csc /t:library /r:c:\his\output\Dev.Patient.dll /r:c:\his\subscribers\domain.sph.dll .\code.cs
+</pre>
+
+<p>Assuming that your project name is <code>Dev</code> and it sits in <code>c:\his</code>. Change the namespace accordingly.</p>
+<p>To get the full power of C# editor we recommend you to download  <a href="http://go.microsoft.com/?linkid=9832222&amp;clcid=0x409">Visual Studio 2013 Express</a>, that allows you to create a library project , get it.</p>
+<p>Other alternative are</p>
+<ul>
+<li><a href="http://www.icsharpcode.net/OpenSource/SD/Download/">SharpDevelop</a></li>
+<li><a href="http://monodevelop.com/">MonoDevelop</a><h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+ <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>Location</td><td> - Assembly Name without extension</td></tr>
+<tr><td>TypeName</td><td> - The name of the class, FullName</td></tr>
+<tr><td>Method</td><td> - The method name</td></tr>
+<tr><td>IsAsync</td><td> - Use async or not, automatically checked if your method return System.Threading.Task or one of its generic</td></tr>
+<tr><td>AsyncTimeout</td><td> - Set the timeout for async call</td></tr>
+<tr><td>MethodArgCollection</td><td> - The method arguements</td></tr>
+</tbody></table>
+
+
+
+</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<p><a href="Field.html">Field</a>
+<a href="MethodArg.html">MethodArg</a>
+<a href="AssemblyField.html">AssemblyField</a>
+<a href="FunctionField.html">FunctionField</a>
+<a href="ConstantField.html">ConstantField</a>
+<a href="DocumentField.html">DocumentField</a>
+<a href="PropertyChangedField.html">PropertyChangedField</a></p>

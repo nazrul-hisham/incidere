@@ -1,0 +1,6 @@
+{
+  "lang": "html",
+  "title": "data-bind-enable",
+  "note": "knockout js data-bind enable",
+  "code": "data-bind=\"enable:${1:path}\" "
+}

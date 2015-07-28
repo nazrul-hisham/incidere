@@ -1,0 +1,6 @@
+{
+  "lang": "csharp",
+  "title": "ob",
+  "note": "get ObjectBuilder",
+  "code": "var ${1:obj} = ObjectBuilder.GetObject(\"${2:name}\");"
+}

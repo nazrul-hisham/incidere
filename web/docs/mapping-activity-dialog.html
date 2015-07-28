@@ -1,0 +1,29 @@
+<h1 id="mapping-activity">Mapping Activity</h1>
+<p>MappingActivity allows you to create a mapping task with your <a href="WorkflowDefinition.html"><code>WorkflowDefinition</code></a>. This will basicall execute <code>TransformAsync</code> method in your <a href="TransformDefinition.html"><code>TransformDefinition</code></a>.</p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>TransformDefinition</td><td> - The name of your TransformDefinition object </td></tr>
+<tr><td>InputPath</td><td> - The variable name that will be the input to your transformation</td></tr>
+<tr><td>OutputPath</td><td> - The variable name where the output of the transformation will be stored</td></tr>
+
+</tbody></table>
+
+
+<h2 id="remarks">Remarks</h2>
+<p>This will generally will create a piece of code in your <a href="Workflow.html"><code>Workflow</code></a> thats intantiate the <a href="TransformDefinition.html"><code>TransformDefinition</code></a> and invoke the <code>TransformAsyn</code> method.</p>
+<p>Give you <a href="WorkflowDefinition.html"><code>WorkflowDefinition</code></a> has 2 <a href="Variable.html"><code>Variable</code></a> named </p>
+<ul>
+<li>Input</li>
+<li>Output</li>
+</ul>
+<p>it will create a code like</p>
+<pre><code>var map = new MyTransformDefinition();
+this.Output = await map.TransformAsync(this.Input);
+</code></pre><p>as such your <code>Input</code> and <code>Output</code> must be of the same type specifed in the <a href="TransformDefinition.html"><code>TransformDefinition</code></a> Source and Destination</p>

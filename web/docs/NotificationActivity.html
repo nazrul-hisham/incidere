@@ -1,0 +1,60 @@
+<h1 id="notificationactivity">NotificationActivity</h1>
+<h2 id="overview">Overview</h2>
+<p><a href="NotificationActivity.html"><code>NotificationActivity</code></a> lets you to send email and for internal user it will create a <a href="Message.html"><code>Message</code></a> in the message center.
+<img src="http://i.imgur.com/3ePhbd9.png" alt="Message Center"></p>
+<p>Internal user is determined by the email addres lookup in <a href="UserProfile.html"><code>UserProfile</code></a>.</p>
+<p><img src="http://i.imgur.com/KJ1CcIY.png" alt="NotificationActivity Dialog"></p>
+<p>Almost all of the properties in <a href="NotificationActivity.html"><code>NotificationActivity</code></a> is an expression+Razor field denoted with <img src="http://i.imgur.com/eJG3fxl.png" alt="expression+razor icon">.
+These fields allow you to write an expression with <code>=</code> notation.
+e.g. to create a piece of string concatenation</p>
+<p><pre>
+=&quot;Notification about new application from &quot; + Applicant.FullName
+</pre>
+NOTE :These must be valid C# expression.</p>
+<p>Ommiting <code>=</code> at the begining will automaticatlly convert the expression into a <code>Razor</code> template expression, as such it allows you to do things like</p>
+<p><pre>
+    Notification about new application from  @Model.Applicant.FullName
+</pre>
+NOTE : Since <code>@</code> is an identifier in <code>Razor</code>, and if you need to provide a literal value for <code>@</code> then you need to escape it. For example the email address <code>someone@company.com</code> have to be written in <code>someone@@company.com</code></p>
+<p>Learn more about Razor <a href="Razor.html"><code>here</code></a></p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>From</td><td> - In more settings, an email address for From</td></tr>
+<tr><td>Subject</td><td> - Subject for the email, this will be the Message Title</td></tr>
+<tr><td>Body</td><td> - The emails body</td></tr>
+<tr><td>To</td><td> - Where to sent to, use , to add more that one recipients</td></tr>
+<tr><td>Cc</td><td> - Carbon copy</td></tr>
+<tr><td>Bcc</td><td> - Blind carbon copy - a copy of the email will be sent to this person witout other recipients in To and Cc knowledge</td></tr>
+<tr><td>IsHtmlEmail</td><td> - Reserved for future use </td></tr>
+</tbody></table>
+
+
+
+<h2 id="see-also">See also</h2>
+<p><a href="Activity.html">Activity</a>
+<a href="CreateEntityActivity.html">CreateEntityActivity</a>
+<a href="DecisionActivity.html">DecisionActivity</a>
+<a href="DecisionBranch.html">DecisionBranch</a>
+<a href="DelayActivity.html">DelayActivity</a>
+<a href="DeleteEntityActivity.html">DeleteEntityActivity</a>
+<a href="EndActivity.html">EndActivity</a>
+<a href="ExpressionActivity.html">ExpressionActivity</a>
+<a href="ScreenActivity.html">ScreenActivity</a>
+<a href="NotificationActivity.html">NotificationActivity</a>
+<a href="UpdateEntityActivity.html">UpdateEntityActivity</a>
+<a href="ReceiveActivity.html">ReceiveActivity</a>
+<a href="SendActivity.html">SendActivity</a>
+<a href="ListenActivity.html">ListenActivity</a>
+<a href="ParallelActivity.html">ParallelActivity</a>
+<a href="JoinActivity.html">JoinActivity</a>
+<a href="ThrowActivity.html">ThrowActivity</a>
+<a href="ParallelBranch.html">ParallelBranch</a>
+<a href="ListenBranch.html">ListenBranch</a>
+<a href="ScheduledTriggerActivity.html">ScheduledTriggerActivity</a></p>

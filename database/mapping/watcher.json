@@ -1,0 +1,49 @@
+{
+    "watcher": {
+        "properties": {
+            "ChangedBy": {
+                "type": "string",
+                "index": "not_analyzed"
+            },
+            "ChangedDate": {
+                "type": "date",
+                "format": "dateOptionalTime"
+            },
+            "CreatedBy": {
+                "type": "string",
+                "index": "not_analyzed"
+            },
+            "CreatedDate": {
+                "type": "date",
+                "format": "dateOptionalTime"
+            },
+            "DateTime": {
+                "type": "date",
+                "format": "dateOptionalTime"
+            },
+            "EntityId": {
+                "type": "string",
+                "index": "not_analyzed"
+            },
+            "EntityName": {
+                "type": "string",
+                "index": "not_analyzed"
+            },
+            "Id": {
+                "type": "string",
+                "index": "not_analyzed"
+            },
+            "IsActive": {
+                "type": "boolean"
+            },
+            "User": {
+                "type": "string",
+                "index": "not_analyzed"
+            },
+            "WebId": {
+                "type": "string",
+                "index": "not_analyzed"
+            }
+        }
+    }
+}

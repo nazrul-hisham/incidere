@@ -1,0 +1,6 @@
+{
+  "lang": "javascript",
+  "title": "msg",
+  "note": "message box",
+  "code": "app.showMessage(\"${1:message}\", \"${2:title}\", [\"OK\"])\n  .done(function () {\n\t${3://body..}  \n});\n"
+}

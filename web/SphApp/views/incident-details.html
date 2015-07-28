@@ -1,0 +1,1615 @@
+
+
+<h1 data-i18n="Incident Details">Incident Details</h1>
+<div id="error-list" class="row" data-bind="visible:errors().length">
+    <!-- ko foreach : errors -->
+    <div class="col-sm-8 col-sm-offset-2 alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="fa fa-exclamation"></i>
+        <span data-bind="text:Message"></span>
+
+    </div>
+    <div class="col-sm-2"></div>
+    <!-- /ko-->
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        
+<form class="form-horizontal" data-bind="with : entity" id="incident-details-form">
+<h2 data-i18n="Incident" data-bind="visible:true">Incident</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Number" for="a66b8968-66af-47e9-f89a-a1f0ecdfb8b9" class="col-md-4">Number</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Number, enable :true "
+                   
+                   
+                   
+                   id="a66b8968-66af-47e9-f89a-a1f0ecdfb8b9" type="text" name="Number" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Status" for="9e7b323b-7f4d-4211-d417-6d0fd8dfe87f" class="col-md-4">Status</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Status, enable :true "
+                   
+                   
+                   
+                   id="9e7b323b-7f4d-4211-d417-6d0fd8dfe87f" type="text" name="Status" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Resolution" for="1d2e6382-2dbb-4bdc-b21b-ce79c3998ebe" class="col-md-4">Resolution</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Resolution, enable :true "
+                   
+                   
+                   
+                   id="1d2e6382-2dbb-4bdc-b21b-ce79c3998ebe" type="text" name="Resolution" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Machine Name" for="aec69d42-0b88-48b6-9447-ab5a8ea88aec" class="col-md-4">Machine Name</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: MachineName, enable :true "
+                   
+                   
+                   
+                   id="aec69d42-0b88-48b6-9447-ab5a8ea88aec" type="text" name="MachineName" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Version" for="8d53d011-d776-419a-e16b-340ebb80b0c0" class="col-md-4">Version</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Version, enable :true "
+                   
+                   
+                   
+                   id="8d53d011-d776-419a-e16b-340ebb80b0c0" type="text" name="Version" />
+        </div>
+    </div>
+<h2 data-i18n="Incident - Errors" data-bind="visible:true">Incident - Errors</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Errors Data" for="32563dfa-4aad-4ec5-bb32-5365b5579281" class="col-md-4">Errors Data</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Errors().Data, enable :true "
+                   
+                   
+                   
+                   id="32563dfa-4aad-4ec5-bb32-5365b5579281" type="text" name="Errors.Data" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Errors  Class Name" for="d824d6b3-617e-4871-be07-5d988bc704f7" class="col-md-4">Errors  Class Name</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Errors().ClassName, enable :true "
+                   
+                   
+                   
+                   id="d824d6b3-617e-4871-be07-5d988bc704f7" type="text" name="Errors.ClassName" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Errors  Message" for="0f6dcd8c-a514-4275-c3f7-b91faf59afbc" class="col-md-4">Errors  Message</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Errors().Message, enable :true "
+                   
+                   
+                   
+                   id="0f6dcd8c-a514-4275-c3f7-b91faf59afbc" type="text" name="Errors.Message" />
+        </div>
+    </div>
+<h2 data-i18n="Incident - Error - Stack Trace" data-bind="visible:true">Incident - Error - Stack Trace</h2>
+
+
+
+<div data-bind="visible:true">
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                    <th data-i18n="Class Name">Class Name</th>
+                    <th data-i18n="File Name">File Name</th>
+                    <th data-i18n="Method Name">Method Name</th>
+                    <th data-i18n="Line Number">Line Number</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach :Errors().StackTraceCollection">
+            <tr>
+                    <td>
+                        
+
+
+    <input  class=" form-control " title=""
+           data-bind="value: ClassName, visible :true, enable :true ,uniqueName:true"
+           
+           
+           type="text"
+           name="ClassName"
+           
+            />
+
+
+                    </td>
+                    <td>
+                        
+
+
+    <input  class=" form-control " title=""
+           data-bind="value: FileName, visible :true, enable :true ,uniqueName:true"
+           
+           
+           type="text"
+           name="FileName"
+           
+            />
+
+
+                    </td>
+                    <td>
+                        
+
+
+    <input  class=" form-control " title=""
+           data-bind="value: MethodName, visible :true, enable :true ,uniqueName:true"
+           
+           
+           type="text"
+           name="MethodName"
+           
+            />
+
+
+                    </td>
+                    <td>
+                        
+    <input step="0" class=" form-control "
+           title="" data-bind="value: LineNumber, visible :true, enable :true"
+           id="" type="number" name="LineNumber" />
+  
+
+                    </td>
+                <td>
+                    <a title="remove" href="#" data-bind="click : $parent.removeChildItem.call($parent,$parent.Errors().StackTraceCollection, $data)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a data-i18n="Stack Trace" class="btn btn-link" data-bind="click : addChildItem(Errors().StackTraceCollection, bespoke.Incidere_incident.domain.StackTrace)">
+        <i class="fa fa-plus-circle"></i>
+        Stack Trace
+    </a>
+
+</div>
+<h2 data-i18n="Incident - Environment" data-bind="visible:true">Incident - Environment</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Processor Count" for="4cf444f4-a932-4866-d540-1fbf9d19a97f" class="col-md-4">Environment  Processor Count</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().ProcessorCount, enable :true "
+                   
+                   
+                   
+                   id="4cf444f4-a932-4866-d540-1fbf9d19a97f" type="text" name="Environment.ProcessorCount" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  OS Version" for="74b45831-c90c-46fb-b4c5-eea12c8935fb" class="col-md-4">Environment  OS Version</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().OSVersion, enable :true "
+                   
+                   
+                   
+                   id="74b45831-c90c-46fb-b4c5-eea12c8935fb" type="text" name="Environment.OSVersion" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Window Bounds Width" for="295285bc-0da2-4b10-9161-6d3f33286f65" class="col-md-4">Environment  Window Bounds Width</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().WindowBoundsWidth, enable :true "
+                   
+                   
+                   
+                   id="295285bc-0da2-4b10-9161-6d3f33286f65" type="text" name="Environment.WindowBoundsWidth" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Window Bounds Height" for="96eee3fa-452d-415f-f7da-925c4b77535c" class="col-md-4">Environment  Window Bounds Height</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().WindowBoundsHeight, enable :true "
+                   
+                   
+                   
+                   id="96eee3fa-452d-415f-f7da-925c4b77535c" type="text" name="Environment.WindowBoundsHeight" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Cpu" for="7db8bc34-5e5e-4158-b35c-c95d78a4df3a" class="col-md-4">Environment  Cpu</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().Cpu, enable :true "
+                   
+                   
+                   
+                   id="7db8bc34-5e5e-4158-b35c-c95d78a4df3a" type="text" name="Environment.Cpu" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment Architecture" for="55529c53-e1da-468c-ad2b-546983649feb" class="col-md-4">Environment Architecture</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().Architecture, enable :true "
+                   
+                   
+                   
+                   id="55529c53-e1da-468c-ad2b-546983649feb" type="text" name="Environment.Architecture" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Total Virtual Memory" for="94ffb227-6624-44d5-cb48-6f1ff3c28f5f" class="col-md-4">Environment  Total Virtual Memory</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().TotalVirtualMemory, enable :true "
+                   
+                   
+                   
+                   id="94ffb227-6624-44d5-cb48-6f1ff3c28f5f" type="text" name="Environment.TotalVirtualMemory" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Available Virtual Memory" for="9850c43b-9e39-4b96-a66d-465081aceda5" class="col-md-4">Environment  Available Virtual Memory</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().AvailableVirtualMemory, enable :true "
+                   
+                   
+                   
+                   id="9850c43b-9e39-4b96-a66d-465081aceda5" type="text" name="Environment.AvailableVirtualMemory" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Disk Space Free" for="6cb6b9fb-897d-47db-b355-e6ebb714a0cc" class="col-md-4">Environment  Disk Space Free</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().DiskSpaceFree, enable :true "
+                   
+                   
+                   
+                   id="6cb6b9fb-897d-47db-b355-e6ebb714a0cc" type="text" name="Environment.DiskSpaceFree" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Total Physical Memory" for="4a35e73c-f80d-4655-93b6-2876f01e8c53" class="col-md-4">Environment  Total Physical Memory</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().TotalPhysicalMemory, enable :true "
+                   
+                   
+                   
+                   id="4a35e73c-f80d-4655-93b6-2876f01e8c53" type="text" name="Environment.TotalPhysicalMemory" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Available Physical Memory" for="f19e7755-0ba3-4fc4-da22-5301ca5e964e" class="col-md-4">Environment  Available Physical Memory</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().AvailablePhysicalMemory, enable :true "
+                   
+                   
+                   
+                   id="f19e7755-0ba3-4fc4-da22-5301ca5e964e" type="text" name="Environment.AvailablePhysicalMemory" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  UTC Offset" for="e17ea02c-fa4e-4739-d962-d4c72b125bda" class="col-md-4">Environment  UTC Offset</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().UtcOffset, enable :true "
+                   
+                   
+                   
+                   id="e17ea02c-fa4e-4739-d962-d4c72b125bda" type="text" name="Environment.UtcOffset" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Environment  Locale" for="07b93908-2c13-4400-f551-a0c3f4604737" class="col-md-4">Environment  Locale</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().Locale, enable :true "
+                   
+                   
+                   
+                   id="07b93908-2c13-4400-f551-a0c3f4604737" type="text" name="Environment.Locale" />
+        </div>
+    </div>
+<h2 data-i18n="Incident - Client" data-bind="visible:true">Incident - Client</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Client  Name" for="29d43147-b578-4624-b1ac-78a8818c772e" class="col-md-4">Client  Name</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Client().Name, enable :true "
+                   
+                   
+                   
+                   id="29d43147-b578-4624-b1ac-78a8818c772e" type="text" name="Client.Name" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Client  Version" for="c582d2da-c360-43be-aec3-11080dbdb64e" class="col-md-4">Client  Version</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Client().Version, enable :true "
+                   
+                   
+                   
+                   id="c582d2da-c360-43be-aec3-11080dbdb64e" type="text" name="Client.Version" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Client  Client URL" for="4044303a-fa6a-492e-876e-998b0c99fe7d" class="col-md-4">Client  Client URL</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Client().ClientUrl, enable :true "
+                   
+                   
+                   
+                   id="4044303a-fa6a-492e-876e-998b0c99fe7d" type="text" name="Client.ClientUrl" />
+        </div>
+    </div>
+<h2 data-i18n="Incident" data-bind="visible:true">Incident</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Tags" for="60c61e71-f312-454b-f20e-3f4804ccc412" class="col-md-4">Tags</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Tags, enable :true "
+                   
+                   
+                   
+                   id="60c61e71-f312-454b-f20e-3f4804ccc412" type="text" name="Tags" />
+        </div>
+    </div>
+<h2 data-i18n="Incident - User Custom Data" data-bind="visible:true">Incident - User Custom Data</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="User Custom Data Message" for="2133c6bb-da97-4c87-b9ac-3f56d34063b3" class="col-md-4">User Custom Data Message</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: UserCustomData().Message, enable :true "
+                   
+                   
+                   
+                   id="2133c6bb-da97-4c87-b9ac-3f56d34063b3" type="text" name="UserCustomData.Message" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="User Custom Data  Caller File Path" for="1201a05b-4d04-4533-eb82-a8521c4e145a" class="col-md-4">User Custom Data  Caller File Path</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: UserCustomData().CallerFilePath, enable :true "
+                   
+                   
+                   
+                   id="1201a05b-4d04-4533-eb82-a8521c4e145a" type="text" name="UserCustomData.CallerFilePath" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="User Custom Data  Caller Line Number" for="21383d0f-7540-4453-fee2-9b3b8cc026fd" class="col-md-4">User Custom Data  Caller Line Number</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: UserCustomData().CallerLineNumber, enable :true "
+                   
+                   
+                   
+                   id="21383d0f-7540-4453-fee2-9b3b8cc026fd" type="text" name="UserCustomData.CallerLineNumber" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="User Custom Data  Caller Member Name" for="5d7ba40d-ed48-4c24-e7a0-9cdc73dd191f" class="col-md-4">User Custom Data  Caller Member Name</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: UserCustomData().CallerMemberName, enable :true "
+                   
+                   
+                   
+                   id="5d7ba40d-ed48-4c24-e7a0-9cdc73dd191f" type="text" name="UserCustomData.CallerMemberName" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="User Custom Data  Severity" for="f6416e22-01a3-4b1e-b307-1839176bdbb2" class="col-md-4">User Custom Data  Severity</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: UserCustomData().Severity, enable :true "
+                   
+                   
+                   
+                   id="f6416e22-01a3-4b1e-b307-1839176bdbb2" type="text" name="UserCustomData.Severity" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="User Custom Data  Computer" for="3847b4a8-7fbc-438f-829c-3a951a3cd42c" class="col-md-4">User Custom Data  Computer</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: UserCustomData().Computer, enable :true "
+                   
+                   
+                   
+                   id="3847b4a8-7fbc-438f-829c-3a951a3cd42c" type="text" name="UserCustomData.Computer" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="User Custom Data Details" for="4215b270-1eb7-4373-cf1d-3d66ca9a3ef3" class="col-md-4">User Custom Data Details</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: UserCustomData().Details, enable :true "
+                   
+                   
+                   
+                   id="4215b270-1eb7-4373-cf1d-3d66ca9a3ef3" type="text" name="UserCustomData.Details" />
+        </div>
+    </div>
+<h2 data-i18n="Incident - Request" data-bind="visible:true">Incident - Request</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Host Name" for="31f03a32-8197-4209-9a29-3c0f58ede12f" class="col-md-4">Request  Host Name</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().HostName, enable :true "
+                   
+                   
+                   
+                   id="31f03a32-8197-4209-9a29-3c0f58ede12f" type="text" name="Request.HostName" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request URL" for="46a5e279-3938-44cd-f659-a92f20c65034" class="col-md-4">Request URL</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Url, enable :true "
+                   
+                   
+                   
+                   id="46a5e279-3938-44cd-f659-a92f20c65034" type="text" name="Request.Url" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  HTTP Method" for="ccfc952f-3b0c-4161-8979-afdc343dc33c" class="col-md-4">Request  HTTP Method</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().HttpMethod, enable :true "
+                   
+                   
+                   
+                   id="ccfc952f-3b0c-4161-8979-afdc343dc33c" type="text" name="Request.HttpMethod" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  IP Address" for="eee2d108-669a-4dbb-d030-e9008522be2f" class="col-md-4">Request  IP Address</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().IPAddress, enable :true "
+                   
+                   
+                   
+                   id="eee2d108-669a-4dbb-d030-e9008522be2f" type="text" name="Request.IPAddress" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Query String" for="38db83b4-5769-4420-c5bf-769009ba1654" class="col-md-4">Request  Query String</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().QueryString, enable :true "
+                   
+                   
+                   
+                   id="38db83b4-5769-4420-c5bf-769009ba1654" type="text" name="Request.QueryString" />
+        </div>
+    </div>
+<h2 data-i18n="Incident - Request - Cookies" data-bind="visible:true">Incident - Request - Cookies</h2>
+
+
+
+<div data-bind="visible:true">
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                    <th data-i18n="Name">Name</th>
+                    <th data-i18n="Value">Value</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach :Request().CookiesCollection">
+            <tr>
+                    <td>
+                        
+
+
+    <input  class=" form-control " title=""
+           data-bind="value: Name, visible :true, enable :true ,uniqueName:true"
+           
+           
+           type="text"
+           name="Name"
+           
+            />
+
+
+                    </td>
+                    <td>
+                        
+
+
+    <input  class=" form-control " title=""
+           data-bind="value: Value, visible :true, enable :true ,uniqueName:true"
+           
+           
+           type="text"
+           name="Value"
+           
+            />
+
+
+                    </td>
+                <td>
+                    <a title="remove" href="#" data-bind="click : $parent.removeChildItem.call($parent,$parent.Request().CookiesCollection, $data)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a data-i18n="Cookies" class="btn btn-link" data-bind="click : addChildItem(Request().CookiesCollection, bespoke.Incidere_incident.domain.Cookies)">
+        <i class="fa fa-plus-circle"></i>
+        Cookies
+    </a>
+
+</div>
+<h2 data-i18n="Incident - Request - Data" data-bind="visible:true">Incident - Request - Data</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data APPL_MD_PATH" for="905cd9f0-3753-4918-d4f9-74d924601220" class="col-md-4">Request  Data APPL_MD_PATH</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().APPL_MD_PATH, enable :true "
+                   
+                   
+                   
+                   id="905cd9f0-3753-4918-d4f9-74d924601220" type="text" name="Request.Data.APPL_MD_PATH" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data APPL_PHYSICAL_PATH" for="4afefdde-0a5c-4836-c0ed-4a2e7bb2e5a0" class="col-md-4">Request  Data APPL_PHYSICAL_PATH</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().APPL_PHYSICAL_PATH, enable :true "
+                   
+                   
+                   
+                   id="4afefdde-0a5c-4836-c0ed-4a2e7bb2e5a0" type="text" name="Request.Data.APPL_PHYSICAL_PATH" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data AUTH_TYPE" for="97adcc37-71f5-4893-ad12-1a3fce1602de" class="col-md-4">Request  Data AUTH_TYPE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().AUTH_TYPE, enable :true "
+                   
+                   
+                   
+                   id="97adcc37-71f5-4893-ad12-1a3fce1602de" type="text" name="Request.Data.AUTH_TYPE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data AUTH_USER" for="bef1b782-2603-407f-877c-522e65797c60" class="col-md-4">Request  Data AUTH_USER</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().AUTH_USER, enable :true "
+                   
+                   
+                   
+                   id="bef1b782-2603-407f-877c-522e65797c60" type="text" name="Request.Data.AUTH_USER" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data AUTH_PASSWORD" for="1b48a454-b8c8-4d5a-e65d-c105e5df4ea3" class="col-md-4">Request  Data AUTH_PASSWORD</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().AUTH_PASSWORD, enable :true "
+                   
+                   
+                   
+                   id="1b48a454-b8c8-4d5a-e65d-c105e5df4ea3" type="text" name="Request.Data.AUTH_PASSWORD" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data LOGON_USER" for="dce0a78a-829a-40dd-a53e-202c51aeea9e" class="col-md-4">Request  Data LOGON_USER</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().LOGON_USER, enable :true "
+                   
+                   
+                   
+                   id="dce0a78a-829a-40dd-a53e-202c51aeea9e" type="text" name="Request.Data.LOGON_USER" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data REMOTE_USER" for="ea02d692-d507-4ce6-e770-ea6783528329" class="col-md-4">Request  Data REMOTE_USER</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().REMOTE_USER, enable :true "
+                   
+                   
+                   
+                   id="ea02d692-d507-4ce6-e770-ea6783528329" type="text" name="Request.Data.REMOTE_USER" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_COOKIE" for="9872a2db-7653-4a9c-e0c9-0f3630a3f228" class="col-md-4">Request  Data CERT_COOKIE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_COOKIE, enable :true "
+                   
+                   
+                   
+                   id="9872a2db-7653-4a9c-e0c9-0f3630a3f228" type="text" name="Request.Data.CERT_COOKIE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_FLAGS" for="a7909fb2-694d-4046-f29d-edc35d17f009" class="col-md-4">Request  Data CERT_FLAGS</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_FLAGS, enable :true "
+                   
+                   
+                   
+                   id="a7909fb2-694d-4046-f29d-edc35d17f009" type="text" name="Request.Data.CERT_FLAGS" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_ISSUER" for="badc86b6-e315-4f69-bae8-5c102ba1c3e5" class="col-md-4">Request  Data CERT_ISSUER</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_ISSUER, enable :true "
+                   
+                   
+                   
+                   id="badc86b6-e315-4f69-bae8-5c102ba1c3e5" type="text" name="Request.Data.CERT_ISSUER" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_KEYSIZE" for="8d4dbcf4-2bc1-41a6-be1a-0a2af92a5acc" class="col-md-4">Request  Data CERT_KEYSIZE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_KEYSIZE, enable :true "
+                   
+                   
+                   
+                   id="8d4dbcf4-2bc1-41a6-be1a-0a2af92a5acc" type="text" name="Request.Data.CERT_KEYSIZE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_SECRETKEYSIZE" for="079c2d60-ba37-4f92-8434-ba2113abb827" class="col-md-4">Request  Data CERT_SECRETKEYSIZE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_SECRETKEYSIZE, enable :true "
+                   
+                   
+                   
+                   id="079c2d60-ba37-4f92-8434-ba2113abb827" type="text" name="Request.Data.CERT_SECRETKEYSIZE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_SERIALNUMBER" for="8d47d892-6a3e-44d1-d163-57386c7942b6" class="col-md-4">Request  Data CERT_SERIALNUMBER</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_SERIALNUMBER, enable :true "
+                   
+                   
+                   
+                   id="8d47d892-6a3e-44d1-d163-57386c7942b6" type="text" name="Request.Data.CERT_SERIALNUMBER" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_SERVER_ISSUER" for="c4152e36-38bb-4c73-f7d7-34a144c28435" class="col-md-4">Request  Data CERT_SERVER_ISSUER</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_SERVER_ISSUER, enable :true "
+                   
+                   
+                   
+                   id="c4152e36-38bb-4c73-f7d7-34a144c28435" type="text" name="Request.Data.CERT_SERVER_ISSUER" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_SERVER_SUBJECT" for="8f2fcdfa-d68b-497b-9b8a-25b072926690" class="col-md-4">Request  Data CERT_SERVER_SUBJECT</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_SERVER_SUBJECT, enable :true "
+                   
+                   
+                   
+                   id="8f2fcdfa-d68b-497b-9b8a-25b072926690" type="text" name="Request.Data.CERT_SERVER_SUBJECT" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_SUBJECT" for="a98b15c7-67e4-4360-d5fb-2e2698951e84" class="col-md-4">Request  Data CERT_SUBJECT</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_SUBJECT, enable :true "
+                   
+                   
+                   
+                   id="a98b15c7-67e4-4360-d5fb-2e2698951e84" type="text" name="Request.Data.CERT_SUBJECT" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CONTENT_LENGTH" for="04f9cea6-ffcc-4aee-a365-5b531a9602a2" class="col-md-4">Request  Data CONTENT_LENGTH</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CONTENT_LENGTH, enable :true "
+                   
+                   
+                   
+                   id="04f9cea6-ffcc-4aee-a365-5b531a9602a2" type="text" name="Request.Data.CONTENT_LENGTH" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CONTENT_TYPE" for="d99b50d6-c823-410b-a2f9-3da9b8375796" class="col-md-4">Request  Data CONTENT_TYPE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CONTENT_TYPE, enable :true "
+                   
+                   
+                   
+                   id="d99b50d6-c823-410b-a2f9-3da9b8375796" type="text" name="Request.Data.CONTENT_TYPE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data GATEWAY_INTERFACE" for="6603bdba-c1a4-409f-d885-b26f04ef0551" class="col-md-4">Request  Data GATEWAY_INTERFACE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().GATEWAY_INTERFACE, enable :true "
+                   
+                   
+                   
+                   id="6603bdba-c1a4-409f-d885-b26f04ef0551" type="text" name="Request.Data.GATEWAY_INTERFACE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTPS" for="f77e1fb9-918e-46fc-caf2-feab66566062" class="col-md-4">Request  Data HTTPS</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTPS, enable :true "
+                   
+                   
+                   
+                   id="f77e1fb9-918e-46fc-caf2-feab66566062" type="text" name="Request.Data.HTTPS" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTPS_KEYSIZE" for="8dd95bfc-4f19-43f2-f02f-46ac33d9017f" class="col-md-4">Request  Data HTTPS_KEYSIZE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTPS_KEYSIZE, enable :true "
+                   
+                   
+                   
+                   id="8dd95bfc-4f19-43f2-f02f-46ac33d9017f" type="text" name="Request.Data.HTTPS_KEYSIZE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTPS_SECRETKEYSIZE" for="c93c4f76-1067-4d1b-da59-cefe8edbe13b" class="col-md-4">Request  Data HTTPS_SECRETKEYSIZE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTPS_SECRETKEYSIZE, enable :true "
+                   
+                   
+                   
+                   id="c93c4f76-1067-4d1b-da59-cefe8edbe13b" type="text" name="Request.Data.HTTPS_SECRETKEYSIZE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTPS_SERVER_ISSUER" for="729de10d-e407-49a3-fd9e-2480c449834d" class="col-md-4">Request  Data HTTPS_SERVER_ISSUER</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTPS_SERVER_ISSUER, enable :true "
+                   
+                   
+                   
+                   id="729de10d-e407-49a3-fd9e-2480c449834d" type="text" name="Request.Data.HTTPS_SERVER_ISSUER" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CERT_SERVER_SUBJECT" for="c40bb7a8-2198-4c2c-ed72-dbc877c3fd71" class="col-md-4">Request  Data CERT_SERVER_SUBJECT</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CERT_SERVER_SUBJECT, enable :true "
+                   
+                   
+                   
+                   id="c40bb7a8-2198-4c2c-ed72-dbc877c3fd71" type="text" name="Request.Data.CERT_SERVER_SUBJECT" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data INSTANCE_ID" for="f816930d-cfd0-4483-e32e-9818d6db5453" class="col-md-4">Request  Data INSTANCE_ID</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().INSTANCE_ID, enable :true "
+                   
+                   
+                   
+                   id="f816930d-cfd0-4483-e32e-9818d6db5453" type="text" name="Request.Data.INSTANCE_ID" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data INSTANCE_META_PATH" for="c1689db2-7c25-41d1-b6ce-371f707a0534" class="col-md-4">Request  Data INSTANCE_META_PATH</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().INSTANCE_META_PATH, enable :true "
+                   
+                   
+                   
+                   id="c1689db2-7c25-41d1-b6ce-371f707a0534" type="text" name="Request.Data.INSTANCE_META_PATH" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data LOCAL_ADDR" for="b34b51fa-a43d-4517-9319-70b06d37a2d1" class="col-md-4">Request  Data LOCAL_ADDR</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().LOCAL_ADDR, enable :true "
+                   
+                   
+                   
+                   id="b34b51fa-a43d-4517-9319-70b06d37a2d1" type="text" name="Request.Data.LOCAL_ADDR" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data PATH_INFO" for="5bec6fa8-5fd2-4f0f-d304-299b2e0e5d32" class="col-md-4">Request  Data PATH_INFO</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().PATH_INFO, enable :true "
+                   
+                   
+                   
+                   id="5bec6fa8-5fd2-4f0f-d304-299b2e0e5d32" type="text" name="Request.Data.PATH_INFO" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data PATH_TRANSLATED" for="78f12ce9-3ec1-46a0-baea-6e24b6e88a09" class="col-md-4">Request  Data PATH_TRANSLATED</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().PATH_TRANSLATED, enable :true "
+                   
+                   
+                   
+                   id="78f12ce9-3ec1-46a0-baea-6e24b6e88a09" type="text" name="Request.Data.PATH_TRANSLATED" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data QUERY_STRING" for="4581e614-0068-4c84-9d92-2db19028757c" class="col-md-4">Request  Data QUERY_STRING</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().QUERY_STRING, enable :true "
+                   
+                   
+                   
+                   id="4581e614-0068-4c84-9d92-2db19028757c" type="text" name="Request.Data.QUERY_STRING" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data REMOTE_ADDR" for="71e1189e-e262-4ad9-8c00-f4947b129a3b" class="col-md-4">Request  Data REMOTE_ADDR</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().REMOTE_ADDR, enable :true "
+                   
+                   
+                   
+                   id="71e1189e-e262-4ad9-8c00-f4947b129a3b" type="text" name="Request.Data.REMOTE_ADDR" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data REMOTE_HOST" for="f69d497c-5766-4959-e7e7-94346ba835e7" class="col-md-4">Request  Data REMOTE_HOST</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().REMOTE_HOST, enable :true "
+                   
+                   
+                   
+                   id="f69d497c-5766-4959-e7e7-94346ba835e7" type="text" name="Request.Data.REMOTE_HOST" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data REMOTE_PORT" for="cde0d6e9-035d-43e3-e00d-3bcc0004012b" class="col-md-4">Request  Data REMOTE_PORT</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().REMOTE_PORT, enable :true "
+                   
+                   
+                   
+                   id="cde0d6e9-035d-43e3-e00d-3bcc0004012b" type="text" name="Request.Data.REMOTE_PORT" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data REMOTE_USER" for="3c115671-5020-43d1-8e2f-8bb1d8916bb2" class="col-md-4">Request  Data REMOTE_USER</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().REMOTE_USER, enable :true "
+                   
+                   
+                   
+                   id="3c115671-5020-43d1-8e2f-8bb1d8916bb2" type="text" name="Request.Data.REMOTE_USER" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data SCRIPT_NAME" for="712c2729-0bd8-4e4b-874e-4e59cfc897f3" class="col-md-4">Request  Data SCRIPT_NAME</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().SCRIPT_NAME, enable :true "
+                   
+                   
+                   
+                   id="712c2729-0bd8-4e4b-874e-4e59cfc897f3" type="text" name="Request.Data.SCRIPT_NAME" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data SERVER_NAME" for="9b861544-cfd8-448e-a3f3-44950fdba056" class="col-md-4">Request  Data SERVER_NAME</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().SERVER_NAME, enable :true "
+                   
+                   
+                   
+                   id="9b861544-cfd8-448e-a3f3-44950fdba056" type="text" name="Request.Data.SERVER_NAME" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data SERVER_PORT" for="d1c38634-13f5-4cd4-9966-44e208aac53a" class="col-md-4">Request  Data SERVER_PORT</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().SERVER_PORT, enable :true "
+                   
+                   
+                   
+                   id="d1c38634-13f5-4cd4-9966-44e208aac53a" type="text" name="Request.Data.SERVER_PORT" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data SERVER_PORT_SECURE" for="d73f3477-1193-4a26-8f1f-2f8019ddaadc" class="col-md-4">Request  Data SERVER_PORT_SECURE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().SERVER_PORT_SECURE, enable :true "
+                   
+                   
+                   
+                   id="d73f3477-1193-4a26-8f1f-2f8019ddaadc" type="text" name="Request.Data.SERVER_PORT_SECURE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data. SERVER_PROTOCOL" for="febae8d5-d13f-4a64-e6b2-ad5578767f52" class="col-md-4">Request  Data. SERVER_PROTOCOL</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().SERVER_PROTOCOL, enable :true "
+                   
+                   
+                   
+                   id="febae8d5-d13f-4a64-e6b2-ad5578767f52" type="text" name="Request.Data.SERVER_PROTOCOL" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data SERVER_SOFTWARE" for="36e4ac4b-90e1-4723-a035-a18c4c824b49" class="col-md-4">Request  Data SERVER_SOFTWARE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().SERVER_SOFTWARE, enable :true "
+                   
+                   
+                   
+                   id="36e4ac4b-90e1-4723-a035-a18c4c824b49" type="text" name="Request.Data.SERVER_SOFTWARE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data URL" for="c56c70bb-85a3-469d-b138-736c03d6b510" class="col-md-4">Request  Data URL</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().URL, enable :true "
+                   
+                   
+                   
+                   id="c56c70bb-85a3-469d-b138-736c03d6b510" type="text" name="Request.Data.URL" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTP_CONNECTION" for="d12aac29-2186-40ad-b3e5-9047edb033b9" class="col-md-4">Request  Data HTTP_CONNECTION</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTP_CONNECTION, enable :true "
+                   
+                   
+                   
+                   id="d12aac29-2186-40ad-b3e5-9047edb033b9" type="text" name="Request.Data.HTTP_CONNECTION" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data CONTENT_TYPE" for="70dab4d8-ae4d-447d-d44f-02365726ac40" class="col-md-4">Request  Data CONTENT_TYPE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().CONTENT_TYPE, enable :true "
+                   
+                   
+                   
+                   id="70dab4d8-ae4d-447d-d44f-02365726ac40" type="text" name="Request.Data.CONTENT_TYPE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTP_ACCEPT" for="7993853c-74bd-40b6-f71e-6e3f71c5a428" class="col-md-4">Request  Data HTTP_ACCEPT</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTP_ACCEPT, enable :true "
+                   
+                   
+                   
+                   id="7993853c-74bd-40b6-f71e-6e3f71c5a428" type="text" name="Request.Data.HTTP_ACCEPT" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTP_ACCEPT_ENCODING" for="bd2f45f4-3030-4665-dea1-5047a1f50519" class="col-md-4">Request  Data HTTP_ACCEPT_ENCODING</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTP_ACCEPT_ENCODING, enable :true "
+                   
+                   
+                   
+                   id="bd2f45f4-3030-4665-dea1-5047a1f50519" type="text" name="Request.Data.HTTP_ACCEPT_ENCODING" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTP_ACCEPT_LANGUAGE" for="73d0b843-7ffb-487b-95ae-91e6a5f42985" class="col-md-4">Request  Data HTTP_ACCEPT_LANGUAGE</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTP_ACCEPT_LANGUAGE, enable :true "
+                   
+                   
+                   
+                   id="73d0b843-7ffb-487b-95ae-91e6a5f42985" type="text" name="Request.Data.HTTP_ACCEPT_LANGUAGE" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTP_HOST" for="f0baf880-60f3-46a7-dcf2-903ad79b55d8" class="col-md-4">Request  Data HTTP_HOST</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTP_HOST, enable :true "
+                   
+                   
+                   
+                   id="f0baf880-60f3-46a7-dcf2-903ad79b55d8" type="text" name="Request.Data.HTTP_HOST" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTP_REFERER" for="78e9517a-5322-4f2e-b162-530a2b4b00b7" class="col-md-4">Request  Data HTTP_REFERER</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTP_REFERER, enable :true "
+                   
+                   
+                   
+                   id="78e9517a-5322-4f2e-b162-530a2b4b00b7" type="text" name="Request.Data.HTTP_REFERER" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTP_USER_AGENT" for="ebb07d04-07d9-45d2-d149-b048d871c8e6" class="col-md-4">Request  Data HTTP_USER_AGENT</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTP_USER_AGENT, enable :true "
+                   
+                   
+                   
+                   id="ebb07d04-07d9-45d2-d149-b048d871c8e6" type="text" name="Request.Data.HTTP_USER_AGENT" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Request  Data HTTP_X_REQUESTED_WITH" for="6dbbe653-1778-4595-812c-c9db05bb6739" class="col-md-4">Request  Data HTTP_X_REQUESTED_WITH</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Request().Data().HTTP_X_REQUESTED_WITH, enable :true "
+                   
+                   
+                   
+                   id="6dbbe653-1778-4595-812c-c9db05bb6739" type="text" name="Request.Data.HTTP_X_REQUESTED_WITH" />
+        </div>
+    </div>
+<h2 data-i18n="Incident" data-bind="visible:true">Incident</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Form" for="d6f20452-db24-4298-e401-02503191f2d3" class="col-md-4">Form</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Form, enable :true "
+                   
+                   
+                   
+                   id="d6f20452-db24-4298-e401-02503191f2d3" type="text" name="Form" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Raw Data" for="296e7663-147c-4490-a46f-8b8b44fb12ec" class="col-md-4">Raw Data</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: RawData, enable :true "
+                   
+                   
+                   
+                   id="296e7663-147c-4490-a46f-8b8b44fb12ec" type="text" name="RawData" />
+        </div>
+    </div>
+<h2 data-i18n="Incident - Headers" data-bind="visible:true">Incident - Headers</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Cache Control" for="e73fcc6f-c9d1-46a6-8d5e-423420124b94" class="col-md-4">Headers  Cache Control</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().CacheControl, enable :true "
+                   
+                   
+                   
+                   id="e73fcc6f-c9d1-46a6-8d5e-423420124b94" type="text" name="Headers.CacheControl" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Connection" for="70f6a8fe-79fa-4e84-db0c-5575512db8da" class="col-md-4">Headers  Connection</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().Connection, enable :true "
+                   
+                   
+                   
+                   id="70f6a8fe-79fa-4e84-db0c-5575512db8da" type="text" name="Headers.Connection" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Pragma" for="a9a6ce55-a9d2-4d79-951d-2b7572023a67" class="col-md-4">Headers  Pragma</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().Pragma, enable :true "
+                   
+                   
+                   
+                   id="a9a6ce55-a9d2-4d79-951d-2b7572023a67" type="text" name="Headers.Pragma" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Content Length" for="a2f9e91c-af91-4c72-a7ff-e58aa64beb9c" class="col-md-4">Headers  Content Length</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().ContentLength, enable :true "
+                   
+                   
+                   
+                   id="a2f9e91c-af91-4c72-a7ff-e58aa64beb9c" type="text" name="Headers.ContentLength" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Content Type" for="59556662-a2fd-4c48-dc58-66ba239a4c15" class="col-md-4">Headers  Content Type</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().ContentType, enable :true "
+                   
+                   
+                   
+                   id="59556662-a2fd-4c48-dc58-66ba239a4c15" type="text" name="Headers.ContentType" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Accept" for="d9b2c080-1fc5-483a-fdde-e44d2b8b747a" class="col-md-4">Headers  Accept</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().Accept, enable :true "
+                   
+                   
+                   
+                   id="d9b2c080-1fc5-483a-fdde-e44d2b8b747a" type="text" name="Headers.Accept" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Accept Encoding" for="03061cfe-1346-41d4-a8b9-f340eb257458" class="col-md-4">Headers  Accept Encoding</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().AcceptEncoding, enable :true "
+                   
+                   
+                   
+                   id="03061cfe-1346-41d4-a8b9-f340eb257458" type="text" name="Headers.AcceptEncoding" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Accept Language" for="31d8f5df-86fb-4f28-c517-8b7ecc7ce795" class="col-md-4">Headers  Accept Language</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().AcceptLanguage, enable :true "
+                   
+                   
+                   
+                   id="31d8f5df-86fb-4f28-c517-8b7ecc7ce795" type="text" name="Headers.AcceptLanguage" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Host" for="b73835ab-6920-4433-a321-4fa9f80a8392" class="col-md-4">Headers  Host</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().Host, enable :true "
+                   
+                   
+                   
+                   id="b73835ab-6920-4433-a321-4fa9f80a8392" type="text" name="Headers.Host" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Referer" for="5b946e94-9c8d-4e81-ff37-1bdf90c2b93f" class="col-md-4">Headers  Referer</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().Referer, enable :true "
+                   
+                   
+                   
+                   id="5b946e94-9c8d-4e81-ff37-1bdf90c2b93f" type="text" name="Headers.Referer" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  User Agent" for="5c665c97-d1fc-420a-e7f6-50c9dd4b4df1" class="col-md-4">Headers  User Agent</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().UserAgent, enable :true "
+                   
+                   
+                   
+                   id="5c665c97-d1fc-420a-e7f6-50c9dd4b4df1" type="text" name="Headers.UserAgent" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  Origin" for="80847c53-af27-4012-b02e-35fc48871199" class="col-md-4">Headers  Origin</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().Origin, enable :true "
+                   
+                   
+                   
+                   id="80847c53-af27-4012-b02e-35fc48871199" type="text" name="Headers.Origin" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Headers  X Requested With" for="bd683033-face-4ea8-ef6a-ac838e83964f" class="col-md-4">Headers  X Requested With</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Headers().XRequestedWith, enable :true "
+                   
+                   
+                   
+                   id="bd683033-face-4ea8-ef6a-ac838e83964f" type="text" name="Headers.XRequestedWith" />
+        </div>
+    </div>
+</form>
+    </div>
+    <div class="col-sm-4">
+        
+    </div>
+</div>

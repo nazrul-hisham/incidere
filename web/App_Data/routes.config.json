@@ -1,0 +1,16 @@
+[
+  {
+    "role": "everybody",
+    "groupName": null,
+    "route": "custom-paging",
+    "moduleId": "viewmodels/custom-paging",
+    "title": "Custom Paging for Ima",
+    "nav": true,
+    "icon": "fa fa-pagelines",
+    "caption": "Custom Paging for Ima",
+    "settings": null,
+    "showWhenLoggedIn": false,
+    "isAdminPage": false,
+    "startPageRoute": null
+  }
+]

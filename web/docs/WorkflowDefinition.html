@@ -1,0 +1,100 @@
+<h1 id="workflowdefinition">WorkflowDefinition</h1>
+<h2 id="overview">Overview</h2>
+<p><code>WorkflowDefinition</code> represent the core work that your app needs to do, while <code>EntityDefinition</code> represents set of data definition for you app.<code>WorkflowDefinition</code> is much richer in terms of capabilities and complexities. It used primarily to build a <code>state-machine</code> for your application, which could represent a long running process with the ability to be persisted and de-hydrated when the moment comes.</p>
+<h2 id="variables">Variables</h2>
+<p><code>WorkflowDefinition</code> is just a simple object with attributes, or fields, but we call them <code>Variable</code>. The <code>Variables</code> holds the user state of an <code>instance</code>.These are normally things that goes into your <code>ScreenActivity</code> forms, as well as other states variables such loop counter etc.</p>
+<p><code>Variables</code> are the things that your workflow interact with. Lets walk through an example for a workflow to process a referral request for specialist, in a traditional code development, we might write something like</p>
+<pre><code class="lang-csharp">public class ProcessReferral : Workflow
+{
+    // a member to hold the patient object
+    public Patient Patient{set;get;}
+
+    // a member for the requested specialist
+    public string Specialist{set;get;}
+
+    //.. other members and methods
+
+
+}
+</code></pre>
+<p>So all your variables will be written as public field in your <code>Workflow</code> class, in which you will manipulate these <code>Variables</code> as <code>Activities</code> are executed.</p>
+<p><a href="Variable.html">See more about variables here</a></p>
+<h2 id="activities">Activities</h2>
+<p><code>Variables</code> to lets you define states for your <code>Workflow</code>, and <code>Activity</code> is the way you define <code>Operation</code> for your <code>Workflow</code>. If we were to illustrate a <code>Workflow</code> with traditional code approach. This is what we have</p>
+<pre><code class="lang-csharp">public class ProcessReferral : Workflow
+{
+    // a member to hold the patient object
+    public Patient Patient{set;get;}
+
+    // a member for the requested specialist
+    public string Specialist{set;get;}
+
+    // a member for the specialist
+    public string Specialist{set;get;}
+
+    // a member for the specialist response
+    public string Response{set;get;}
+
+    // The actual workflow
+    public void Start()
+    {
+        this.SendEmailToSpecialist();               // 1
+        await this.InitSpecialistConfirmation();    // 2
+        if(this.Response == &quot;Yes&quot;)                  //
+            this.CreateAppointmentActivity();       // 3
+        else
+            this.EmailPatientDeclined();            // 3
+    }
+
+    // send email activity
+    public void SendEmailToSpecialist()
+    {
+        var smtp = new SmtpClient();
+        smtp.Send(to:this.Specialist,subject: &quot; Referral request for &quot; + this.Patient.FullName, body:&quot;...&quot;);
+    }
+
+
+    //.. other members and methods
+
+
+
+}
+</code></pre>
+<p>As you can see, <code>Activities</code> is nothing more than a function to perform an <code>Operation</code>, what it differs between the normal class is, it&#39;s ability to be persisted between activities.</p>
+<p><code>Rx Developer</code> <code>WorkflowDesigner</code> on the hand lets you forget about writing the code altogether, instead it will help generate the codes for you. The benefits of using <code>WorkflowDesigner</code> are tremendous, the code are tested to be robust, less chances for bugs, it also encapsulate the developers from the inner working of a state machince and let you focus on your actual business needs.</p>
+<p>Core concepts of <code>Workflow</code> is a series of <code>Activities</code> it contains, these activities are generally can be divided into 2 categories</p>
+<ul>
+<li>System Activity</li>
+<li>Human Activity</li>
+</ul>
+<p>An <code>Activity</code> is a unit of work performed by the Workflow engine, it&#39;s like a method in your <code>EntityDefinition</code>, except that it could be persisted when it&#39;s done,befor continuing for the <code>NextActivity</code></p>
+<h3 id="system-activity">System Activity</h3>
+<p>Represent set of <code>Activities</code> executed by the workflow engine</p>
+<h3 id="human-activity">Human Activity</h3>
+<p>Represent set of <code>Activities</code> performed by human or external system. <code>ScreenActivity</code> and <code>ReceiveActivity</code> are the most common one.</p>
+<h3 id="asynchronous-activity">Asynchronous Activity</h3>
+<p>There are other aspects in <code>Activity</code> execution, what we call it&#39;s <code>Asynchronous</code>. This is a behaviour that some activities have which allow them to be initiated and at some point of time in the future, be executed. Most of human <code>Activity</code> are at the same time <code>Asynchronous</code>, i.e. they get initiated before it could be executed. Take <code>ScreenActivity</code> for example, it will not be executed directly, but initiated when it turns to execute. What happen is, in the initializing process, emails and notification will be sent to the <code>performers</code> for the task. Once the email sent, the <code>performer</code> will have a link point for the execution, the moment he clicks the submit button, the <code>Activity</code> is executed.</p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>ActivityCollection</td><td> - The list of activities for you Workflow, use the designer to add or remove activities </td></tr>
+<tr><td>VariableDefinitionCollection</td><td> - The list of variables available to your workflow</td></tr>
+<tr><td>WorkflowDefinitionId</td><td> - The primary identity for your workflow, this is auto assigned and it will be embedded within your workflow</td></tr>
+<tr><td>Name</td><td> - The name of your workflow </td></tr>
+<tr><td>Note</td><td> - Any note for developers used only</td></tr>
+<tr><td>IsActive</td><td> - Is it running or not</td></tr>
+<tr><td>SchemaStoreId</td><td> - A default empty schema is provided, you should replace this schema with your own</td></tr>
+<tr><td>Version</td><td> - Version is an internal identification number for your workflow. It used primarily when you have breaking changes to your workflow and there are existing one still running.</td></tr>
+<tr><td>WorkflowTypeName</td><td> - Internal use</td></tr>
+<tr><td>CodeNamespace</td><td> - Internal use</td></tr>
+</tbody></table>
+
+
+
+<h2 id="see-also">See also</h2>

@@ -1,0 +1,173 @@
+{
+    "incident":{
+        "properties":{
+            "CreatedBy": {"type": "string", "index":"not_analyzed"},
+            "ChangedBy": {"type": "string", "index":"not_analyzed"},
+            "WebId": {"type": "string", "index":"not_analyzed"},
+            "CreatedDate": {"type": "date"},
+            "ChangedDate": {"type": "date"},
+             "Number":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Status":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "MachineName":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Version":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+    "Errors":{
+        "type":  "object",
+        "properties":{
+             "Data":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "ClassName":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Message":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+    "StackTraceCollection":{
+        "type":  "object",
+        "properties":{
+             "LineNumber":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "ClassName":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "FileName":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "MethodName":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+        }
+    }
+
+        }
+    }
+,
+    "Environment":{
+        "type":  "object",
+        "properties":{
+             "ProcessorCount":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "OSVersion":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "WindowBoundsWidth":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "WindowBoundsHeight":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "Cpu":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Architecture":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "TotalVirtualMemory":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "AvailableVirtualMemory":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "DiskSpaceFree":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "TotalPhysicalMemory":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "AvailablePhysicalMemory":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "UtcOffset":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "Locale":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+        }
+    }
+,
+    "Client":{
+        "type":  "object",
+        "properties":{
+             "Name":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Version":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "ClientUrl":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+        }
+    }
+,
+             "Tags":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+    "UserCustomData":{
+        "type":  "object",
+        "properties":{
+             "Message":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CallerFilePath":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CallerLineNumber":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "CallerMemberName":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Severity":{"type":"integer","index":"analyzed","boost":1,"include_in_all":true,"ignore_malformed":false},
+             "Computer":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Details":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+        }
+    }
+,
+    "Request":{
+        "type":  "object",
+        "properties":{
+             "HostName":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Url":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HttpMethod":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "IPAddress":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "QueryString":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+    "CookiesCollection":{
+        "type":  "object",
+        "properties":{
+             "Name":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Value":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+        }
+    }
+,
+    "Data":{
+        "type":  "object",
+        "properties":{
+             "APPL_MD_PATH":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "APPL_PHYSICAL_PATH":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "AUTH_TYPE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "AUTH_USER":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "AUTH_PASSWORD":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "LOGON_USER":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "REMOTE_USER":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CERT_COOKIE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CERT_FLAGS":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CERT_ISSUER":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CERT_KEYSIZE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CERT_SECRETKEYSIZE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CERT_SERIALNUMBER":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CERT_SERVER_ISSUER":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CERT_SERVER_SUBJECT":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CERT_SUBJECT":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CONTENT_LENGTH":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "CONTENT_TYPE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "GATEWAY_INTERFACE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTPS":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTPS_KEYSIZE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTPS_SECRETKEYSIZE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTPS_SERVER_ISSUER":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTPS_SERVER_SUBJECT":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "INSTANCE_ID":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "INSTANCE_META_PATH":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "LOCAL_ADDR":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "PATH_INFO":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "PATH_TRANSLATED":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "QUERY_STRING":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "REMOTE_ADDR":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "REMOTE_HOST":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "REMOTE_PORT":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "REQUEST_METHOD":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "SCRIPT_NAME":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "SERVER_NAME":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "SERVER_PORT":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "SERVER_PORT_SECURE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "SERVER_PROTOCOL":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "SERVER_SOFTWARE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "URL":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTP_CONNECTION":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTP_CONTENT_TYPE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTP_ACCEPT":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTP_ACCEPT_ENCODING":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTP_ACCEPT_LANGUAGE":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTP_HOST":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTP_REFERER":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTP_USER_AGENT":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "HTTP_X_REQUESTED_WITH":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+        }
+    }
+
+        }
+    }
+,
+             "Form":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "RawData":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+    "Headers":{
+        "type":  "object",
+        "properties":{
+             "CacheControl":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Connection":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Pragma":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "ContentLength":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "ContentType":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Accept":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "AcceptEncoding":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "AcceptLanguage":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Host":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Referer":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "UserAgent":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Origin":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "XRequestedWith":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+        }
+    }
+,
+             "Resolution":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+        }
+    }
+}

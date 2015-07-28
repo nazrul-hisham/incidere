@@ -1,0 +1,45 @@
+<h1 id="send-activity">Send Activity</h1>
+<p>SendActivity allows you to send a message to one of the adapter available in your solution.</p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>AdapterAssembly</td><td> - Select the assembly(dll) where your adapter is defined </td></tr>
+        <tr><td>Adapter</td><td> - Select a type where your adapter is</td></tr>
+        <tr><td>Method</td><td> - The operation that will be called</td></tr>
+        <tr><td>ArgumentPath</td><td> - The argument or input path in your WorkflowDefinition that will be passed to the adapter method</td></tr>
+        <tr><td>ReturnValuePath</td><td> - You can optionally store the return value of the operation call</td></tr>
+        <tr><td>IsSynchronous</td><td> - If your method doesnot contails any async, then you should check this</td></tr>
+        <tr><td>ExceptionFilterCollection</td><td> - Allows you to filter and retry the operation based on the Exception</td></tr>
+    </tbody>
+</table>
+
+<h2 id="using-the-exceptionfilter-to-retry-your-method">Using the ExceptionFilter to retry your Method</h2>
+<p>SendActivity allows you to filter any Exception and retry the Method as many times as you like, you can also set interval for the next retry will happen.
+See <a href="ExceptionFilter.html"><code>ExceptionFilter</code></a> for details.</p>
+<h2 id="see-also">See also</h2>
+<p><a href="Activity.html">Activity</a>
+<a href="CreateEntityActivity.html">CreateEntityActivity</a>
+<a href="DecisionActivity.html">DecisionActivity</a>
+<a href="DecisionBranch.html">DecisionBranch</a>
+<a href="DelayActivity.html">DelayActivity</a>
+<a href="DeleteEntityActivity.html">DeleteEntityActivity</a>
+<a href="EndActivity.html">EndActivity</a>
+<a href="ExpressionActivity.html">ExpressionActivity</a>
+<a href="ScreenActivity.html">ScreenActivity</a>
+<a href="NotificationActivity.html">NotificationActivity</a>
+<a href="UpdateEntityActivity.html">UpdateEntityActivity</a>
+<a href="ReceiveActivity.html">ReceiveActivity</a>
+<a href="SendActivity.html">SendActivity</a>
+<a href="ListenActivity.html">ListenActivity</a>
+<a href="ParallelActivity.html">ParallelActivity</a>
+<a href="JoinActivity.html">JoinActivity</a>
+<a href="ThrowActivity.html">ThrowActivity</a>
+<a href="ParallelBranch.html">ParallelBranch</a>
+<a href="ListenBranch.html">ListenBranch</a>
+<a href="ScheduledTriggerActivity.html">ScheduledTriggerActivity</a></p>

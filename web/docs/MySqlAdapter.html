@@ -1,0 +1,65 @@
+<h1 id="mysql-adapter">MySql Adapter</h1>
+<p>MySql adapter allows you to connect to MySql database and your MariaDB databases.</p>
+<h2 id="connections">Connections</h2>
+<p><img src="http://i.imgur.com/S1yU2cf.png" alt="connection"></p>
+<p>You will need to fill the connection details to your MySql Server, click connect button on the toolbar the select your database and schema, this should be the same item.</p>
+<h1 id="table-adapters">Table adapters</h1>
+<p>Table Adapters allow you to create a direct table that will provide the following features</p>
+<ul>
+<li>Insert item</li>
+<li>Update item via primary key(s)</li>
+<li>Remove item via primary key(s)</li>
+<li>Select an item via primary key(s)</li>
+<li>Select items based on query  with paging</li>
+</ul>
+<p>For each table selected an Adapter class witht the name <code>&lt;table&gt;Adapter</code> and a domain object with the same name as the table will be created. The domain object will contains all the columns in the table. While the Adapter class will contains method to access that particular table in your database.</p>
+<p>Selecting child tables for your table adapter will create a WebApi that allows you to access child items in <code>/api/&lt;database&gt;/&lt;schema&gt;/&lt;parent&gt;/{id}/&lt;child&gt;</code>  for example in <code>employees</code> sample database(you can download this from MySql.com). Selecting <code>empoyees</code> and the corresponding child table <code>title</code> will create a new API endpoint</p>
+<p><code>api/employees/employees/{emp_no:int}/titles</code>.</p>
+<p>this is the code produced by the Adapter</p>
+<pre><code class="lang-c#">[Route(&quot;{emp_no:int}/titles&quot;)]
+public async Task&lt;object&gt; GettitlesByemployees(int emp_no, int page = 1, int size = 40, bool includeTotal = false)       {
+    // method body
+
+}
+</code></pre>
+<h2 id="procedure-adapters">Procedure Adapters</h2>
+<p>Procdure adapters allows you to create a method to invoke MySql Stored Procedure, for each procedure selected 2 classes will be created</p>
+<ul>
+<li>Request class with the name <code>&lt;ProcedureName&gt;Request</code></li>
+<li>Response class with the name <code>&lt;ProcedureName&gt;Response</code></li>
+</ul>
+<p>and a method in your <code>&lt;AdapterName&gt;</code> class with the name <code>&lt;ProcedureName&gt;Async</code></p>
+<p>This is a sample procedure created in the employees database</p>
+<pre><code class="lang-SQL">CREATE DEFINER=`root`@`localhost` PROCEDURE `getStaffCountByTitle`(IN title VARCHAR(255), OUT count INT)
+BEGIN 
+
+    SELECT COUNT(*) INTO count FROM employees.titles
+      WHERE &#39;title&#39; = title;
+
+  END
+</code></pre>
+<p>and the following code will be generated</p>
+<pre><code class="lang-C#">public async Task&lt;GetStaffCountByTitleResponse&gt; GetStaffCountByTitleAsync(GetStaffCountByTitleRequest request)
+{
+    const string SPROC = &quot;getStaffCountByTitle&quot;;
+
+    var sql =&quot;CALL `employees`.`getStaffCountByTitle`(@title,@count);&quot;;
+    sql +=&quot;SELECT CAST(@count AS SIGNED);&quot;;
+    using(var conn = new MySqlConnection(this.ConnectionString))
+    using(var cmd = new MySqlCommand(sql, conn))
+    {
+        cmd.Parameters.AddWithValue(&quot;@title&quot;, request.@title);
+        await conn.OpenAsync();
+        var response = new GetStaffCountByTitleResponse();
+        using(var reader = await cmd.ExecuteReaderAsync())
+        {
+            if(await reader.ReadAsync())
+            {
+                response.@count = (long)reader[0];
+            }
+        }
+        return response;
+    }
+}
+</code></pre>
+<p>Note : you will need to add <code>Allow User Variables=true;</code> in your connection string for any procedure with <code>OUT</code> parameter</p>

@@ -1,0 +1,30 @@
+<h1 id="emailaction">EmailAction</h1>
+<h2 id="overview">Overview</h2>
+<p>Email action allows you to send email when an <a href="Trigger.html"><code>Trigger</code></a> is fired. 
+<img src="http://i.imgur.com/FfnjISq.png" alt="email action"></p>
+<h2 id="properties">Properties</h2>
+<table class="table table-condensed table-bordered">
+    <thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>From</td><td> - The email from</td></tr>
+<tr><td>To</td><td> - Email address to sent to, use <code>,</code> for multiple receivers</td></tr>
+<tr><td>SubjectTemplate</td><td> - The subject template, see <a href="RazorTemplate.html">RazorTemplate</a> for details </td></tr>
+<tr><td>BodyTemplate</td><td> - The email body template, see <a href="RazorTemplate.html">RazorTemplate</a> for details  </td></tr>
+<tr><td>Bcc</td><td> - email bcc, (blank carbon copy) so it will not appear in the sent to and cc . This field is Razor Template enabled</td></tr>
+<tr><td>Cc</td><td> - Carbon copy email for attention, with the original receiver being able to see the cc addresses. This field is Razor Template enabled </td></tr>
+<tr><td>UseAsync</td><td> - (Internal use)</td></tr>
+</tbody></table>
+
+
+
+<h2 id="see-also">See also</h2>
+<p><a href="CustomAction.html">CustomAction</a>
+<a href="AssemblyAction.html">AssemblyAction</a>
+<a href="EmailAction.html">EmailAction</a>
+<a href="SetterAction.html">SetterAction</a>
+<a href="StartWorkflowAction.html">StartWorkflowAction</a></p>

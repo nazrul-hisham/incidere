@@ -1,0 +1,6 @@
+{
+  "lang": "html",
+  "title": "form-horizontal",
+  "note": "form-horizontal",
+  "code": "<form class=\"form-horizontal\">\r\n</form>"
+}
