@@ -13,16 +13,16 @@
           "$type": "Bespoke.Sph.Domain.ObjectCollection`1[[Bespoke.Sph.Domain.ConditionalFormatting, domain.sph]], domain.sph",
           "$values": []
         },
-        "Path": "Id",
-        "Header": "Id",
+        "Path": "Number",
+        "Header": "Number",
         "Sort": "",
-        "IsLinkColumn": false,
-        "FormRoute": null,
-        "IconCssClass": "",
+        "IsLinkColumn": true,
+        "FormRoute": "incident-details",
+        "IconCssClass": "fa fa-external-link",
         "IconStoreId": "",
         "Format": "text:{0}",
         "RouteValueField": "",
-        "WebId": "0c837cc6-c57a-47f9-9b00-9b08f5af970f"
+        "WebId": "42d33157-9137-4f71-9aee-5fa8b90ce5fc"
       },
       {
         "$type": "Bespoke.Sph.Domain.ViewColumn, domain.sph",
@@ -30,8 +30,8 @@
           "$type": "Bespoke.Sph.Domain.ObjectCollection`1[[Bespoke.Sph.Domain.ConditionalFormatting, domain.sph]], domain.sph",
           "$values": []
         },
-        "Path": "Number",
-        "Header": "Number",
+        "Path": "MachineName",
+        "Header": "Machine Name",
         "Sort": "",
         "IsLinkColumn": false,
         "FormRoute": null,
@@ -39,7 +39,24 @@
         "IconStoreId": "",
         "Format": "text:{0}",
         "RouteValueField": "",
-        "WebId": "371e3725-6b73-4f9e-a261-45f8d9a0d8e5"
+        "WebId": "87a18492-bb3d-4d05-dfd6-64ceac0852c2"
+      },
+      {
+        "$type": "Bespoke.Sph.Domain.ViewColumn, domain.sph",
+        "ConditionalFormattingCollection": {
+          "$type": "Bespoke.Sph.Domain.ObjectCollection`1[[Bespoke.Sph.Domain.ConditionalFormatting, domain.sph]], domain.sph",
+          "$values": []
+        },
+        "Path": "Errors.ClassName",
+        "Header": "Errors  Class Name",
+        "Sort": "",
+        "IsLinkColumn": false,
+        "FormRoute": null,
+        "IconCssClass": "",
+        "IconStoreId": "",
+        "Format": "text:{0}",
+        "RouteValueField": "",
+        "WebId": "51922531-41ae-44c7-807a-fe81a354934b"
       },
       {
         "$type": "Bespoke.Sph.Domain.ViewColumn, domain.sph",
@@ -56,7 +73,41 @@
         "IconStoreId": "",
         "Format": "date:{{ value:{0}, format:'D/M/YYYY HH:mm'}}",
         "RouteValueField": "",
-        "WebId": "4ba8f0ed-bf55-45f2-8cda-c37d90ec8c6b"
+        "WebId": "3b727cf2-e93f-4acb-b893-68bc3353ec9f"
+      },
+      {
+        "$type": "Bespoke.Sph.Domain.ViewColumn, domain.sph",
+        "ConditionalFormattingCollection": {
+          "$type": "Bespoke.Sph.Domain.ObjectCollection`1[[Bespoke.Sph.Domain.ConditionalFormatting, domain.sph]], domain.sph",
+          "$values": []
+        },
+        "Path": "Status",
+        "Header": "Status",
+        "Sort": "",
+        "IsLinkColumn": false,
+        "FormRoute": null,
+        "IconCssClass": "",
+        "IconStoreId": "",
+        "Format": "text:{0}",
+        "RouteValueField": "",
+        "WebId": "03bc3e46-165e-4e6a-bfb4-6ca6cd5c4054"
+      },
+      {
+        "$type": "Bespoke.Sph.Domain.ViewColumn, domain.sph",
+        "ConditionalFormattingCollection": {
+          "$type": "Bespoke.Sph.Domain.ObjectCollection`1[[Bespoke.Sph.Domain.ConditionalFormatting, domain.sph]], domain.sph",
+          "$values": []
+        },
+        "Path": "Resolution",
+        "Header": "Resolution",
+        "Sort": "",
+        "IsLinkColumn": false,
+        "FormRoute": null,
+        "IconCssClass": "",
+        "IconStoreId": "",
+        "Format": "text:{0}",
+        "RouteValueField": "",
+        "WebId": "0f6a502f-c513-4355-b0a1-6a8627f84ad5"
       }
     ]
   },
@@ -80,10 +131,10 @@
     "$values": []
   },
   "IconClass": "fa fa-medkit",
-  "IconStoreId": "bb114901-2781-4525-805b-d0cc1840180f",
+  "IconStoreId": "4aa7e285-d2b6-4f18-89a9-41a46d85d4eb",
   "EntityDefinitionId": "incident",
-  "Name": "All Incidents",
-  "Route": "all-incidents",
+  "Name": "Incident All",
+  "Route": "incident-all",
   "Note": "",
   "Query": "",
   "IsPublished": true,
@@ -95,9 +146,9 @@
   "Template": null,
   "DisplayOnDashboard": true,
   "CreatedBy": "admin",
-  "Id": "incident-all-incidents",
-  "CreatedDate": "2015-07-28T10:54:03.2875284+08:00",
+  "Id": "incident-incident-all",
+  "CreatedDate": "2015-07-28T16:48:05.7739418+08:00",
   "ChangedBy": "admin",
-  "ChangedDate": "2015-07-28T10:55:01.3896447+08:00",
-  "WebId": "d9942849-77d0-45c0-c85e-76d2f49b1e5e"
+  "ChangedDate": "2015-07-28T17:41:39.7950718+08:00",
+  "WebId": "0ebe0d1d-dcbd-49ec-f40a-663c38dbd3e4"
 }

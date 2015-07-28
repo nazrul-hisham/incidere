@@ -873,7 +873,7 @@
               "IsNullable": true,
               "IsNotIndexed": false,
               "IsAnalyzed": false,
-              "IsFilterable": true,
+              "IsFilterable": false,
               "IsExcludeInAll": false,
               "Boost": 0,
               "DefaultValue": null,
@@ -2630,6 +2630,6 @@
   "Id": "incident",
   "CreatedDate": "2015-07-23T17:04:53.6331845+08:00",
   "ChangedBy": "admin",
-  "ChangedDate": "2015-07-28T10:54:16.3765999+08:00",
+  "ChangedDate": "2015-07-28T17:55:24.1033334+08:00",
   "WebId": "37599fd1-2d78-41fd-da20-da121f331faa"
 }

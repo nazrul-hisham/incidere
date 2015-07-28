@@ -1,4 +1,4 @@
-<h1>All Incidents</h1>
+<h1>Incident All</h1>
 <div class="row">
     <div class="col-md-8">
         <button class="btn btn-link pull-right" data-bind="visible: chartFiltered, click: clearChartFilter">
@@ -8,21 +8,28 @@
         <table class="table table-striped" data-bind="filter : {path:'tbody>tr'}, searchPaging :{ query: query, map : map, entity : 'Incident', list:list}">
             <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Number</th>
+                    <th>Machine Name</th>
+                    <th>Errors  Class Name</th>
+                    <th>Created Date</th>
                     <th>Status</th>
                     <th>Resolution</th>
-                    <th>Created Date</th>
                 </tr>
             </thead>
             <tbody data-bind="foreach :list">
                 <tr data-bind="">
 
-                    <td data-bind="text:Id"></td>
-                    <td data-bind="text:Number"></td>
+                    <td>
+                        <a data-bind="attr : {href:'#incident-details' + '/' + Id, title:'Number' }">
+                            <i class="fa fa-external-link"></i>
+                                                        <span data-bind="text:Number"></span>
+                        </a>
+                    </td>
+                    <td data-bind="text:MachineName"></td>
+                    <td data-bind="text:Errors.ClassName"></td>
+                    <td data-bind="date:{ value:CreatedDate, format:&#39;D/M/YYYY HH:mm&#39;}"></td>
                     <td data-bind="text:Status"></td>
                     <td data-bind="text:Resolution"></td>
-                    <td data-bind="date:{ value:CreatedDate, format:&#39;D/M/YYYY HH:mm&#39;}"></td>
 
 
                 </tr>
