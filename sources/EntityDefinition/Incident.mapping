@@ -8,6 +8,7 @@
             "ChangedDate": {"type": "date"},
              "Number":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
              "Status":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "Resolution":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
              "MachineName":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
              "Version":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
     "Errors":{
@@ -167,7 +168,14 @@
         }
     }
 ,
-             "Resolution":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+    "Response":{
+        "type":  "object",
+        "properties":{
+             "StatusCode":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true},
+             "StatusDescription":{"type":"string","index":"not_analyzed","boost":1,"include_in_all":true}
+        }
+    }
+
         }
     }
 }
