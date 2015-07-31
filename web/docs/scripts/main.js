@@ -1,7 +1,8 @@
 ﻿/// <reference path="../../Scripts/knockout-3.2.0.debug.js" />
 /// <reference path="../../Scripts/jquery-2.1.3.intellisense.js" />
+/// <reference path="../highlight.pack.js" />
 /// <reference path="core.sph/Scripts/typeahead.bundle.js" />
-/// <reference path="core.sph/Scripts/bloodhound.js" />
+
 define(["types"], function (types) {
 
     var nav = function (href2) {
@@ -20,6 +21,13 @@ define(["types"], function (types) {
         mapTopic = function (topicHash) {
             var tcs = new $.Deferred();
             topicHash = topicHash.toLowerCase().replace(/#\/?/g, "").replace(new RegExp(/\/.*$/g), "");
+
+            // some default items
+            if (topicHash.indexOf(" domain.sph") > -1) {
+                var item = /bespoke.sph.domain.(.*?), domain.sph/g.exec(topicHash)[1];
+                tcs.resolve(item + ".html");
+                return tcs.promise();
+            }
             $.get("scripts/topics.map", function (script) {
                 var ooo = JSON.parse(script);
                 tcs.resolve(ooo[topicHash]);

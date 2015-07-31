@@ -25,8 +25,18 @@
                                                         <span data-bind="text:Number"></span>
                         </a>
                     </td>
-                    <td data-bind="text:MachineName"></td>
-                    <td data-bind="text:Errors.ClassName"></td>
+                    <td>
+                        <a data-bind="attr : {href:'#incident-environment' + '/' + Id, title:'Machine Name' }">
+                            <i class="fa fa-bolt"></i>
+                                                        <span data-bind="text:MachineName"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a data-bind="attr : {href:'#incident-errors' + '/' + Id, title:'Errors  Class Name' }">
+                            <i class="fa fa-bolt"></i>
+                                                        <span data-bind="text:Errors.ClassName"></span>
+                        </a>
+                    </td>
                     <td data-bind="date:{ value:CreatedDate, format:&#39;D/M/YYYY HH:mm&#39;}"></td>
                     <td data-bind="text:Status"></td>
                     <td data-bind="text:Resolution"></td>

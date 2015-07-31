@@ -1,0 +1,150 @@
+
+
+<h1 data-i18n="Incident Errors">Incident Errors</h1>
+<div id="error-list" class="row" data-bind="visible:errors().length">
+    <!-- ko foreach : errors -->
+    <div class="col-sm-8 col-sm-offset-2 alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="fa fa-exclamation"></i>
+        <span data-bind="text:Message"></span>
+
+    </div>
+    <div class="col-sm-2"></div>
+    <!-- /ko-->
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        
+<form class="form-horizontal" data-bind="with : entity" id="incident-errors-form">
+<h2 data-i18n="Errorr" data-bind="visible:true">Errorr</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Errors Data" for="32563dfa-4aad-4ec5-bb32-5365b5579281" class="col-md-4">Errors Data</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Errors().Data, enable :true "
+                   
+                   
+                   
+                   id="32563dfa-4aad-4ec5-bb32-5365b5579281" type="text" name="Errors.Data" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Errors  Class Name" for="d824d6b3-617e-4871-be07-5d988bc704f7" class="col-md-4">Errors  Class Name</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Errors().ClassName, enable :true "
+                   
+                   
+                   
+                   id="d824d6b3-617e-4871-be07-5d988bc704f7" type="text" name="Errors.ClassName" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Errors  Message" for="0f6dcd8c-a514-4275-c3f7-b91faf59afbc" class="col-md-4">Errors  Message</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Errors().Message, enable :true "
+                   
+                   
+                   
+                   id="0f6dcd8c-a514-4275-c3f7-b91faf59afbc" type="text" name="Errors.Message" />
+        </div>
+    </div>
+
+
+<div data-bind="visible:true">
+    <table class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                    <th data-i18n="Class Name">Class Name</th>
+                    <th data-i18n="File Name">File Name</th>
+                    <th data-i18n="Method Name">Method Name</th>
+                    <th data-i18n="Line Number">Line Number</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach :Errors().StackTraceCollection">
+            <tr>
+                    <td>
+                        
+
+
+    <input  class=" form-control " title=""
+           data-bind="value: ClassName, visible :true, enable :true ,uniqueName:true"
+           
+           
+           type="text"
+           name="ClassName"
+           
+            />
+
+
+                    </td>
+                    <td>
+                        
+
+
+    <input  class=" form-control " title=""
+           data-bind="value: FileName, visible :true, enable :true ,uniqueName:true"
+           
+           
+           type="text"
+           name="FileName"
+           
+            />
+
+
+                    </td>
+                    <td>
+                        
+
+
+    <input  class=" form-control " title=""
+           data-bind="value: MethodName, visible :true, enable :true ,uniqueName:true"
+           
+           
+           type="text"
+           name="MethodName"
+           
+            />
+
+
+                    </td>
+                    <td>
+                        
+    <input step="0" class=" form-control "
+           title="" data-bind="value: LineNumber, visible :true, enable :true"
+           id="" type="number" name="LineNumber" />
+  
+
+                    </td>
+                <td>
+                    <a title="remove" href="#" data-bind="click : $parent.removeChildItem.call($parent,$parent.Errors().StackTraceCollection, $data)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a data-i18n="Stack Trace" class="btn btn-link" data-bind="click : addChildItem(Errors().StackTraceCollection, bespoke.Incidere_incident.domain.StackTrace)">
+        <i class="fa fa-plus-circle"></i>
+        Stack Trace
+    </a>
+
+</div>
+</form>
+    </div>
+    <div class="col-sm-4">
+        
+    </div>
+</div>

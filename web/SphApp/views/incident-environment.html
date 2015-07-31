@@ -1,0 +1,208 @@
+
+
+<h1 data-i18n="Incident Environment">Incident Environment</h1>
+<div id="error-list" class="row" data-bind="visible:errors().length">
+    <!-- ko foreach : errors -->
+    <div class="col-sm-8 col-sm-offset-2 alert alert-dismissable alert-danger">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="fa fa-exclamation"></i>
+        <span data-bind="text:Message"></span>
+
+    </div>
+    <div class="col-sm-2"></div>
+    <!-- /ko-->
+</div>
+<div class="row">
+    <div class="col-sm-8">
+        
+<form class="form-horizontal" data-bind="with : entity" id="incident-environment-form">
+<h2 data-i18n="Incident Environment" data-bind="visible:true">Incident Environment</h2>
+
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Processor Count" for="4cf444f4-a932-4866-d540-1fbf9d19a97f" class="col-md-4">Processor Count</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().ProcessorCount, enable :true "
+                   
+                   
+                   
+                   id="4cf444f4-a932-4866-d540-1fbf9d19a97f" type="text" name="Environment.ProcessorCount" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="OS Version" for="74b45831-c90c-46fb-b4c5-eea12c8935fb" class="col-md-4">OS Version</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().OSVersion, enable :true "
+                   
+                   
+                   
+                   id="74b45831-c90c-46fb-b4c5-eea12c8935fb" type="text" name="Environment.OSVersion" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Window Bounds Width" for="295285bc-0da2-4b10-9161-6d3f33286f65" class="col-md-4">Window Bounds Width</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().WindowBoundsWidth, enable :true "
+                   
+                   
+                   
+                   id="295285bc-0da2-4b10-9161-6d3f33286f65" type="text" name="Environment.WindowBoundsWidth" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Window Bounds Height" for="96eee3fa-452d-415f-f7da-925c4b77535c" class="col-md-4">Window Bounds Height</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().WindowBoundsHeight, enable :true "
+                   
+                   
+                   
+                   id="96eee3fa-452d-415f-f7da-925c4b77535c" type="text" name="Environment.WindowBoundsHeight" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Cpu" for="7db8bc34-5e5e-4158-b35c-c95d78a4df3a" class="col-md-4">Cpu</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().Cpu, enable :true "
+                   
+                   
+                   
+                   id="7db8bc34-5e5e-4158-b35c-c95d78a4df3a" type="text" name="Environment.Cpu" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Architecture" for="55529c53-e1da-468c-ad2b-546983649feb" class="col-md-4">Architecture</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().Architecture, enable :true "
+                   
+                   
+                   
+                   id="55529c53-e1da-468c-ad2b-546983649feb" type="text" name="Environment.Architecture" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Total Virtual Memory" for="94ffb227-6624-44d5-cb48-6f1ff3c28f5f" class="col-md-4">Total Virtual Memory</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().TotalVirtualMemory, enable :true "
+                   
+                   
+                   
+                   id="94ffb227-6624-44d5-cb48-6f1ff3c28f5f" type="text" name="Environment.TotalVirtualMemory" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Virtual Memory" for="9850c43b-9e39-4b96-a66d-465081aceda5" class="col-md-4">Virtual Memory</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().AvailableVirtualMemory, enable :true "
+                   
+                   
+                   
+                   id="9850c43b-9e39-4b96-a66d-465081aceda5" type="text" name="Environment.AvailableVirtualMemory" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Disk Space Free" for="6cb6b9fb-897d-47db-b355-e6ebb714a0cc" class="col-md-4">Disk Space Free</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().DiskSpaceFree, enable :true "
+                   
+                   
+                   
+                   id="6cb6b9fb-897d-47db-b355-e6ebb714a0cc" type="text" name="Environment.DiskSpaceFree" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Total Physical Memory" for="4a35e73c-f80d-4655-93b6-2876f01e8c53" class="col-md-4">Total Physical Memory</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().TotalPhysicalMemory, enable :true "
+                   
+                   
+                   
+                   id="4a35e73c-f80d-4655-93b6-2876f01e8c53" type="text" name="Environment.TotalPhysicalMemory" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Available Physical Memory" for="f19e7755-0ba3-4fc4-da22-5301ca5e964e" class="col-md-4">Available Physical Memory</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().AvailablePhysicalMemory, enable :true "
+                   
+                   
+                   
+                   id="f19e7755-0ba3-4fc4-da22-5301ca5e964e" type="text" name="Environment.AvailablePhysicalMemory" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="UTC Offset" for="e17ea02c-fa4e-4739-d962-d4c72b125bda" class="col-md-4">UTC Offset</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().UtcOffset, enable :true "
+                   
+                   
+                   
+                   id="e17ea02c-fa4e-4739-d962-d4c72b125bda" type="text" name="Environment.UtcOffset" />
+        </div>
+    </div>
+
+
+
+    <div data-bind="visible:true" class="form-group">
+        <label data-i18n="Locale" for="07b93908-2c13-4400-f551-a0c3f4604737" class="col-md-4">Locale</label>
+        <div class="col-md-8">
+            <input  class=" form-control input-large" title=""
+                   data-bind="value: Environment().Locale, enable :true "
+                   
+                   
+                   
+                   id="07b93908-2c13-4400-f551-a0c3f4604737" type="text" name="Environment.Locale" />
+        </div>
+    </div>
+</form>
+    </div>
+    <div class="col-sm-4">
+        
+    </div>
+</div>
