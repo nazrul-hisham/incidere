@@ -18,9 +18,9 @@
                     var query = String.format("Id eq '{0}'", entityId),
                         tcs = new $.Deferred(),
                         itemTask = context.loadOneAsync("Incident", query),
-                        formTask = context.loadOneAsync("EntityForm", "Route eq 'incident-details'"),
+                        formTask = context.loadOneAsync("EntityForm", "Route eq 'incident-detail'"),
                         watcherTask = watcher.getIsWatchingAsync("Incident", entityId),
-                        i18nTask = $.getJSON("i18n/" + config.lang + "/incident-details");
+                        i18nTask = $.getJSON("i18n/" + config.lang + "/incident-detail");
 
                     $.when(itemTask, formTask, watcherTask, i18nTask).done(function(b,f,w,n) {
                         if (b) {
@@ -41,7 +41,7 @@
                 },
                 attached = function (view) {
                     // validation
-                    validation.init($('#incident-details-form'), form());
+                    validation.init($('#incident-detail-form'), form());
 
 
 

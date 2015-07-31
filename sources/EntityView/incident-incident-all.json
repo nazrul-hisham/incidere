@@ -17,7 +17,7 @@
         "Header": "Number",
         "Sort": "",
         "IsLinkColumn": true,
-        "FormRoute": "incident-details",
+        "FormRoute": "incident-detail",
         "IconCssClass": "fa fa-external-link",
         "IconStoreId": "",
         "Format": "text:{0}",
@@ -149,6 +149,6 @@
   "Id": "incident-incident-all",
   "CreatedDate": "2015-07-28T16:48:05.7739418+08:00",
   "ChangedBy": "admin",
-  "ChangedDate": "2015-07-31T09:51:20.0887101+08:00",
+  "ChangedDate": "2015-07-31T11:35:01.1737382+08:00",
   "WebId": "0ebe0d1d-dcbd-49ec-f40a-663c38dbd3e4"
 }

@@ -5521,8 +5521,8 @@
     "$values": []
   },
   "EntityDefinitionId": "incident",
-  "Name": "Incident Details",
-  "Route": "incident-details",
+  "Name": "Incident Detail",
+  "Route": "incident-detail",
   "Note": null,
   "IsAllowedNewItem": true,
   "IconClass": "fa fa-medkit",
@@ -5538,13 +5538,13 @@
   "IsExportAvailable": false,
   "Operation": "save",
   "Entity": "Incident",
-  "Partial": null,
+  "Partial": "",
   "Caption": null,
   "Layout": "Html2ColsWithAuditTrail",
   "CreatedBy": "admin",
-  "Id": "e7570ab8-ad23-4998-96dc-4d9427c21465",
+  "Id": "incident-detail",
   "CreatedDate": "2015-07-23T17:04:29.677135+08:00",
   "ChangedBy": "admin",
-  "ChangedDate": "2015-07-29T09:49:22.5401652+08:00",
+  "ChangedDate": "2015-07-31T11:31:44.6745454+08:00",
   "WebId": "849c34a5-2bae-43b4-b48c-efc6de2319be"
 }
